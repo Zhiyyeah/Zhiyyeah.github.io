@@ -120,83 +120,87 @@
             </div>
           </article>
 
-          <article class="timeline-item">
-            <div class="timeline-date">
-              <span class="year">2025</span>
-              <span class="month-day">12/12</span>
-            </div>
-            <div class="update-body">
-              <div class="update-card">
-                <h3>环厦门岛骑行</h3>
-                <p>完成环岛骑行，用时2小时40分44秒</p>
+          <div class="timeline-hidden" id="hidden-timeline">
+            <article class="timeline-item">
+              <div class="timeline-date">
+                <span class="year">2025</span>
+                <span class="month-day">12/12</span>
               </div>
-            </div>
-          </article>
+              <div class="update-body">
+                <div class="update-card">
+                  <h3>环厦门岛骑行</h3>
+                  <p>完成环岛骑行，用时2小时40分44秒</p>
+                </div>
+              </div>
+            </article>
 
-          <article class="timeline-item">
-            <div class="timeline-date">
-              <span class="year">2024</span>
-              <span class="month-day">08/28</span>
-            </div>
-            <div class="update-body">
-              <div class="update-card">
-                <h3>入学厦门大学</h3>
-                <p>正式成为厦门大学硕士研究生，开启硕士阶段</p>
+            <article class="timeline-item">
+              <div class="timeline-date">
+                <span class="year">2024</span>
+                <span class="month-day">08/28</span>
               </div>
-            </div>
-          </article>
+              <div class="update-body">
+                <div class="update-card">
+                  <h3>入学厦门大学</h3>
+                  <p>正式成为厦门大学硕士研究生，开启硕士阶段</p>
+                </div>
+              </div>
+            </article>
 
-          <article class="timeline-item">
-            <div class="timeline-date">
-              <span class="year">2024</span>
-              <span class="month-day">8月</span>
-            </div>
-            <div class="update-body">
-              <div class="update-card">
-                <h3>新加坡和马来西亚之旅</h3>
-                <p>前往新加坡和马来西亚旅行，首次跨国旅行</p>
+            <article class="timeline-item">
+              <div class="timeline-date">
+                <span class="year">2024</span>
+                <span class="month-day">8月</span>
               </div>
-            </div>
-          </article>
+              <div class="update-body">
+                <div class="update-card">
+                  <h3>新加坡和马来西亚之旅</h3>
+                  <p>前往新加坡和马来西亚旅行，首次跨国旅行</p>
+                </div>
+              </div>
+            </article>
 
-          <article class="timeline-item">
-            <div class="timeline-date">
-              <span class="year">2024</span>
-              <span class="month-day">6月</span>
-            </div>
-            <div class="update-body">
-              <div class="update-card">
-                <h3>从大连海洋大学毕业</h3>
-                <p>本科阶段结束，完成学业并获得理学学士学位</p>
+            <article class="timeline-item">
+              <div class="timeline-date">
+                <span class="year">2024</span>
+                <span class="month-day">6月</span>
               </div>
-            </div>
-          </article>
+              <div class="update-body">
+                <div class="update-card">
+                  <h3>从大连海洋大学毕业</h3>
+                  <p>本科阶段结束，完成学业并获得理学学士学位</p>
+                </div>
+              </div>
+            </article>
 
-          <article class="timeline-item">
-            <div class="timeline-date">
-              <span class="year">2023</span>
-              <span class="month-day">09/29</span>
-            </div>
-            <div class="update-body">
-              <div class="update-card">
-                <h3>保研厦门大学</h3>
-                <p>获得推荐免试研究生资格，拿到厦门大学offer</p>
+            <article class="timeline-item">
+              <div class="timeline-date">
+                <span class="year">2023</span>
+                <span class="month-day">09/29</span>
               </div>
-            </div>
-          </article>
+              <div class="update-body">
+                <div class="update-card">
+                  <h3>保研厦门大学</h3>
+                  <p>获得推荐免试研究生资格，拿到厦门大学offer</p>
+                </div>
+              </div>
+            </article>
 
-          <article class="timeline-item">
-            <div class="timeline-date">
-              <span class="year">2020</span>
-              <span class="month-day">09/19</span>
-            </div>
-            <div class="update-body">
-              <div class="update-card">
-                <h3>入学大连海洋大学</h3>
-                <p>开始本科学习生涯，开启四年大学生活</p>
+            <article class="timeline-item">
+              <div class="timeline-date">
+                <span class="year">2020</span>
+                <span class="month-day">09/19</span>
               </div>
-            </div>
-          </article>
+              <div class="update-body">
+                <div class="update-card">
+                  <h3>入学大连海洋大学</h3>
+                  <p>开始本科学习生涯，开启四年大学生活</p>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <button class="expand-btn" id="expand-btn" onclick="toggleTimeline()">展开动态</button>
         </div>
       </section>
 
@@ -207,24 +211,24 @@
         </div>
         <div class="card-grid">
           <article class="project-card">
-            <p class="project-card__meta">项目类型</p>
-            <h3>项目名称一</h3>
+            <p class="project-card__meta">2025.03-至今</p>
+            <h3>遥感影像超分辨率算法研究</h3>
             <p>
-              用两三句话介绍项目目标、你负责的部分和最终结果。这里先放占位内容。
+              对GOCI-2水体遥感影像构建高质量超分辨数据集，设计专用卷积神经网络架构，融合双态边缘特征提取与坐标注意力机制，模型PSNR较传统基线提升1.8%。
             </p>
           </article>
           <article class="project-card">
-            <p class="project-card__meta">经历类型</p>
-            <h3>经历名称二</h3>
+            <p class="project-card__meta">2024.01-2024.05</p>
+            <h3>艾比湖流域植被覆盖度时空分布研究</h3>
             <p>
-              可以写实习、研究、课程项目、开源贡献或作品集条目，后续替换即可。
+              基于GEE平台处理1712景Landsat-8影像，提取2013-2023年月度植被覆盖度数据，构建随机森林模型进行地物分类，精度达96%。
             </p>
           </article>
           <article class="project-card">
-            <p class="project-card__meta">文章 / 作品</p>
-            <h3>作品名称三</h3>
+            <p class="project-card__meta">国家级大创项目</p>
+            <h3>基于GEE的辽东湾海冰面积监测</h3>
             <p>
-              这里适合放论文、博客、设计作品、演示项目或任何你想展示的成果。
+              使用GEE云平台批量调用Sentinel-2数据，引入OTSU阈值分割算法，实现2015-2022年海冰高效识别，发表软件著作权《辽东湾海冰监测系统》。
             </p>
           </article>
         </div>
