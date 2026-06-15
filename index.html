@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="一个可逐步填充真实信息的个人主页模板。"
+    />
+    <title>你的姓名 | 个人主页</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header" data-header>
+      <a class="brand" href="#home" aria-label="返回首页">你的姓名</a>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="#about">关于</a>
+        <a href="#notes">动态</a>
+        <a href="#work">项目</a>
+        <a href="#hobbies">爱好</a>
+        <a href="#contact">联系</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" id="home">
+        <div class="hero__media" aria-hidden="true">
+          <img
+            src="assets/profile-placeholder.svg"
+            alt=""
+            width="360"
+            height="360"
+          />
+        </div>
+        <div class="hero__content">
+          <p class="eyebrow">Personal Homepage</p>
+          <h1>你的姓名</h1>
+          <p class="hero__lead">
+            这里放一句简洁的个人介绍，例如你的研究方向、职业身份或正在做的事情。
+          </p>
+          <div class="hero__actions" aria-label="主页快捷操作">
+            <a class="button button--primary" href="#work">查看项目</a>
+            <a class="button button--secondary" href="#contact">联系方式</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="about" aria-labelledby="about-title">
+        <div class="section__heading">
+          <p class="eyebrow">About</p>
+          <h2 id="about-title">关于我</h2>
+        </div>
+        <div class="about-layout">
+          <p>
+            这里可以写你的背景、兴趣、研究方向、专业技能或个人故事。现在先保留为模板文字，
+            后续可以逐步替换成真实信息。
+          </p>
+          <ul class="fact-list" aria-label="个人信息占位">
+            <li><span>所在地</span><strong>厦门</strong></li>
+            <li><span>身份</span><strong>硕士研究生</strong></li>
+            <li><span>方向</span><strong>水色遥感</strong></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" id="notes" aria-labelledby="notes-title">
+        <div class="section__heading">
+          <p class="eyebrow">Updates</p>
+          <h2 id="notes-title">近期动态</h2>
+        </div>
+        <div class="updates-timeline" aria-label="近期动态时间线">
+          <article class="timeline-item">
+            <div class="timeline-date">
+              <time datetime="2026-06">2026.06</time>
+            </div>
+            <div class="update-body">
+              <div class="update-card">
+                <figure class="update-media">
+                  <div class="update-photo update-photo--coast">厦门海边</div>
+                  <figcaption>厦门 / 2026.06</figcaption>
+                </figure>
+                <h3>个人主页模板搭建完成</h3>
+                <p>
+                  主页已经可以本地访问，接下来会继续补充真实个人信息、项目经历和照片内容。
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-date">
+              <time datetime="2026-05">2026.05</time>
+            </div>
+            <div class="update-body">
+              <div class="update-card">
+                <h3>阶段性学习记录</h3>
+                <p>
+                  这里可以记录近期学习、项目进展、论文状态或生活更新。这条动态暂时不放照片。
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-date">
+              <time datetime="2026-04">2026.04</time>
+            </div>
+            <div class="update-body">
+              <div class="update-card">
+                <figure class="update-media update-media--grid">
+                  <div class="update-photo update-photo--lab">研究片段</div>
+                  <div class="update-photo update-photo--city">城市日常</div>
+                  <figcaption>学习 / 生活</figcaption>
+                </figure>
+                <h3>一些可以慢慢补全的片段</h3>
+                <p>
+                  后续可以把实验室照片、旅行照片、比赛截图或生活随拍放在这里。
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-date">
+              <time datetime="2026-03">2026.03</time>
+            </div>
+            <div class="update-body">
+              <div class="update-card">
+                <h3>待补充动态标题</h3>
+                <p>
+                  如果某条动态只有文字，保持现在这种结构即可，页面会自动对齐。
+                </p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section section--tint" id="work" aria-labelledby="work-title">
+        <div class="section__heading">
+          <p class="eyebrow">Selected Work</p>
+          <h2 id="work-title">项目与经历</h2>
+        </div>
+        <div class="card-grid">
+          <article class="project-card">
+            <p class="project-card__meta">项目类型</p>
+            <h3>项目名称一</h3>
+            <p>
+              用两三句话介绍项目目标、你负责的部分和最终结果。这里先放占位内容。
+            </p>
+          </article>
+          <article class="project-card">
+            <p class="project-card__meta">经历类型</p>
+            <h3>经历名称二</h3>
+            <p>
+              可以写实习、研究、课程项目、开源贡献或作品集条目，后续替换即可。
+            </p>
+          </article>
+          <article class="project-card">
+            <p class="project-card__meta">文章 / 作品</p>
+            <h3>作品名称三</h3>
+            <p>
+              这里适合放论文、博客、设计作品、演示项目或任何你想展示的成果。
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="hobbies" aria-labelledby="hobbies-title">
+        <div class="section__heading">
+          <p class="eyebrow">Hobbies</p>
+          <h2 id="hobbies-title">爱好</h2>
+        </div>
+        <div class="hobby-layout">
+          <div class="video-hobbies" aria-label="视频爱好占位">
+            <article class="hobby-video">
+              <div class="video-list" aria-label="CSGO 视频列表">
+                <div class="video-placeholder" aria-label="CSGO 视频 01 占位">
+                  <span class="play-mark" aria-hidden="true"></span>
+                  <span>CSGO 视频 01</span>
+                </div>
+                <div class="video-placeholder video-placeholder--small" aria-label="CSGO 视频 02 占位">
+                  <span class="play-mark" aria-hidden="true"></span>
+                  <span>CSGO 视频 02</span>
+                </div>
+              </div>
+              <p class="project-card__meta">FPS / CSGO</p>
+              <h3>CSGO</h3>
+              <p>
+                这里可以放高光操作、残局回合、比赛片段或想保留的精彩瞬间。
+              </p>
+            </article>
+            <article class="hobby-video">
+              <div class="video-list" aria-label="PUBG 视频列表">
+                <video controls preload="metadata" src="assets/videos/PUBG蟑螂车.mp4"></video>
+                <div class="video-placeholder video-placeholder--small" aria-label="PUBG 视频 02 占位">
+                  <span class="play-mark" aria-hidden="true"></span>
+                  <span>PUBG 视频 02</span>
+                </div>
+              </div>
+              <p class="project-card__meta">Battle Royale / PUBG</p>
+              <h3>PUBG</h3>
+              <p>
+                后续可以整理跳点、运营路线、决赛圈片段，或者放一段代表性视频。
+              </p>
+            </article>
+            <article class="hobby-video">
+              <div class="video-list" aria-label="台球视频列表">
+                <div class="video-placeholder" aria-label="台球视频 01 占位">
+                  <span class="play-mark" aria-hidden="true"></span>
+                  <span>台球视频 01</span>
+                </div>
+                <div class="video-placeholder video-placeholder--small" aria-label="台球视频 02 占位">
+                  <span class="play-mark" aria-hidden="true"></span>
+                  <span>台球视频 02</span>
+                </div>
+              </div>
+              <p class="project-card__meta">Billiards</p>
+              <h3>台球</h3>
+              <p>
+                可以放清台记录、练球片段、比赛视频，或者记录阶段性的技术进步。
+              </p>
+            </article>
+          </div>
+
+          <article class="travel-block" aria-labelledby="travel-title">
+            <div class="travel-copy">
+              <p class="project-card__meta">Travel Footprints</p>
+              <h3 id="travel-title">旅行足迹</h3>
+              <p>
+                这里预留为地图加照片墙。已先加入去过或准备整理的城市，
+                后续可以把每段旅程的代表照片补进照片墙。
+              </p>
+              <ul class="place-list" aria-label="旅行地点">
+                <li>北京</li>
+                <li>青岛</li>
+                <li>澳门</li>
+                <li>长沙</li>
+                <li>重庆</li>
+                <li>大连</li>
+                <li>西安</li>
+                <li>潮州</li>
+                <li>杭州</li>
+                <li>南京</li>
+                <li>吉隆坡</li>
+                <li>新加坡</li>
+              </ul>
+            </div>
+            <div class="travel-grid">
+              <div class="travel-map" aria-label="旅行足迹地图占位">
+                <span class="map-route map-route--one" aria-hidden="true"></span>
+                <span class="map-route map-route--two" aria-hidden="true"></span>
+                <span class="map-route map-route--three" aria-hidden="true"></span>
+                <span class="map-marker" data-city="北京" style="--x: 56%; --y: 24%;" tabindex="0"></span>
+                <span class="map-marker" data-city="青岛" style="--x: 66%; --y: 34%;" tabindex="0"></span>
+                <span class="map-marker" data-city="澳门" style="--x: 57%; --y: 73%;" tabindex="0"></span>
+                <span class="map-marker" data-city="长沙" style="--x: 49%; --y: 62%;" tabindex="0"></span>
+                <span class="map-marker" data-city="重庆" style="--x: 38%; --y: 56%;" tabindex="0"></span>
+                <span class="map-marker" data-city="大连" style="--x: 72%; --y: 24%;" tabindex="0"></span>
+                <span class="map-marker" data-city="西安" style="--x: 43%; --y: 43%;" tabindex="0"></span>
+                <span class="map-marker" data-city="潮州" style="--x: 61%; --y: 67%;" tabindex="0"></span>
+                <span class="map-marker" data-city="杭州" style="--x: 68%; --y: 54%;" tabindex="0"></span>
+                <span class="map-marker" data-city="南京" style="--x: 64%; --y: 47%;" tabindex="0"></span>
+                <span class="map-marker map-marker--abroad" data-city="吉隆坡" style="--x: 34%; --y: 82%;" tabindex="0"></span>
+                <span class="map-marker map-marker--abroad" data-city="新加坡" style="--x: 45%; --y: 88%;" tabindex="0"></span>
+                <span class="map-label map-label--one">中国足迹</span>
+                <span class="map-label map-label--two">东南亚</span>
+                <span class="map-label map-label--three">继续添加</span>
+              </div>
+              <div class="photo-wall" aria-label="旅行照片墙占位">
+                <figure>
+                  <div class="photo-tile photo-tile--sea">照片 01</div>
+                  <figcaption>青岛 / 大连</figcaption>
+                </figure>
+                <figure>
+                  <div class="photo-tile photo-tile--street">照片 02</div>
+                  <figcaption>北京 / 南京 / 杭州</figcaption>
+                </figure>
+                <figure>
+                  <div class="photo-tile photo-tile--mountain">照片 03</div>
+                  <figcaption>重庆 / 长沙 / 西安</figcaption>
+                </figure>
+                <figure>
+                  <div class="photo-tile photo-tile--night">照片 04</div>
+                  <figcaption>澳门 / 吉隆坡 / 新加坡</figcaption>
+                </figure>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section
+        class="section section--contact"
+        id="contact"
+        aria-labelledby="contact-title"
+      >
+        <div class="section__heading">
+          <p class="eyebrow">Contact</p>
+          <h2 id="contact-title">联系我</h2>
+        </div>
+        <p>
+          暂时使用占位链接。后续可以替换为邮箱、GitHub、LinkedIn、Google Scholar
+          或其他社交主页。
+        </p>
+        <div class="link-list" aria-label="联系链接">
+          <a href="mailto:your.email@example.com">your.email@example.com</a>
+          <a href="https://github.com/yourname">GitHub</a>
+          <a href="https://www.linkedin.com/in/yourname">LinkedIn</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>&copy; <span data-year></span> 你的姓名. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
