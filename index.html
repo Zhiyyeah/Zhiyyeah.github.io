@@ -7,12 +7,12 @@
       name="description"
       content="一个可逐步填充真实信息的个人主页模板。"
     />
-    <title>你的姓名 | 个人主页</title>
+    <title>叶志远 | 个人主页</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <header class="site-header" data-header>
-      <a class="brand" href="#home" aria-label="返回首页">你的姓名</a>
+      <a class="brand" href="#home" aria-label="返回首页">叶志远</a>
       <nav class="site-nav" aria-label="主导航">
         <a href="#about">关于</a>
         <a href="#notes">动态</a>
@@ -34,12 +34,13 @@
         </div>
         <div class="hero__content">
           <p class="eyebrow">Personal Homepage</p>
-          <h1>你的姓名</h1>
+          <h1>叶志远</h1>
           <p class="hero__lead">
-            这里放一句简洁的个人介绍，例如你的研究方向、职业身份或正在做的事情。
+            厦门大学硕士研究生，研究方向为遥感影像超分辨率
           </p>
           <div class="hero__actions" aria-label="主页快捷操作">
-            <a class="button button--primary" href="#work">查看项目</a>
+            <a class="button button--secondary" href="#work">查看项目</a>
+            <a class="button button--secondary" href="#notes">最近动态</a>
             <a class="button button--secondary" href="#contact">联系方式</a>
           </div>
         </div>
@@ -51,10 +52,21 @@
           <h2 id="about-title">关于我</h2>
         </div>
         <div class="about-layout">
-          <p>
-            这里可以写你的背景、兴趣、研究方向、专业技能或个人故事。现在先保留为模板文字，
-            后续可以逐步替换成真实信息。
-          </p>
+          <div class="about-text">
+            <p>
+              研究方向为水色遥感影像超分辨率，目前在厦门大学攻读硕士学位
+            </p>
+            <p>
+              掌握Python、PyTorch、Matlab、ENVI、ArcGIS、Google Earth Engine等软件和技能
+            </p>
+            <p>
+              对AI有浓厚兴趣，熟练运用GhatGPT、CodeX、Claude Code、Cursor等工具辅助研究
+            </p>
+            <p>
+              热爱台球(多次打出一杆清台)；喜欢玩PUBG(最高14k)、CGGO(残局1V5)
+            </p>
+
+          </div>
           <ul class="fact-list" aria-label="个人信息占位">
             <li><span>所在地</span><strong>厦门</strong></li>
             <li><span>身份</span><strong>硕士研究生</strong></li>
@@ -71,65 +83,117 @@
         <div class="updates-timeline" aria-label="近期动态时间线">
           <article class="timeline-item">
             <div class="timeline-date">
-              <time datetime="2026-06">2026.06</time>
+              <span class="year">2026</span>
+              <span class="month-day">06/15</span>
             </div>
             <div class="update-body">
               <div class="update-card">
-                <figure class="update-media">
-                  <div class="update-photo update-photo--coast">厦门海边</div>
-                  <figcaption>厦门 / 2026.06</figcaption>
-                </figure>
-                <h3>个人主页模板搭建完成</h3>
-                <p>
-                  主页已经可以本地访问，接下来会继续补充真实个人信息、项目经历和照片内容。
-                </p>
+                <h3>开始搭建个人网站</h3>
+                <p>初步搭建个人主页，用于展示学习经历、研究方向和个人兴趣</p>
               </div>
             </div>
           </article>
 
           <article class="timeline-item">
             <div class="timeline-date">
-              <time datetime="2026-05">2026.05</time>
+              <span class="year">2026</span>
+              <span class="month-day">05/24</span>
             </div>
             <div class="update-body">
               <div class="update-card">
-                <h3>阶段性学习记录</h3>
-                <p>
-                  这里可以记录近期学习、项目进展、论文状态或生活更新。这条动态暂时不放照片。
-                </p>
+                <h3>担任福建省城市足球联赛志愿者</h3>
+                <p>参与赛事志愿服务，负责现场协调工作</p>
               </div>
             </div>
           </article>
 
           <article class="timeline-item">
             <div class="timeline-date">
-              <time datetime="2026-04">2026.04</time>
+              <span class="year">2026</span>
+              <span class="month-day">04/17</span>
             </div>
             <div class="update-body">
               <div class="update-card">
-                <figure class="update-media update-media--grid">
-                  <div class="update-photo update-photo--lab">研究片段</div>
-                  <div class="update-photo update-photo--city">城市日常</div>
-                  <figcaption>学习 / 生活</figcaption>
-                </figure>
-                <h3>一些可以慢慢补全的片段</h3>
-                <p>
-                  后续可以把实验室照片、旅行照片、比赛截图或生活随拍放在这里。
-                </p>
+                <h3>参加2026遥感青年科学家研讨会</h3>
+                <p>汇报研究成果"基于深度学习方法的GOCI-2遥感影像超分辨率"</p>
               </div>
             </div>
           </article>
 
           <article class="timeline-item">
             <div class="timeline-date">
-              <time datetime="2026-03">2026.03</time>
+              <span class="year">2025</span>
+              <span class="month-day">12/12</span>
             </div>
             <div class="update-body">
               <div class="update-card">
-                <h3>待补充动态标题</h3>
-                <p>
-                  如果某条动态只有文字，保持现在这种结构即可，页面会自动对齐。
-                </p>
+                <h3>环厦门岛骑行</h3>
+                <p>完成环岛骑行，用时2小时40分44秒</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-date">
+              <span class="year">2024</span>
+              <span class="month-day">08/28</span>
+            </div>
+            <div class="update-body">
+              <div class="update-card">
+                <h3>入学厦门大学</h3>
+                <p>正式成为厦门大学硕士研究生，开启硕士阶段</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-date">
+              <span class="year">2024</span>
+              <span class="month-day">8月</span>
+            </div>
+            <div class="update-body">
+              <div class="update-card">
+                <h3>新加坡和马来西亚之旅</h3>
+                <p>前往新加坡和马来西亚旅行，首次跨国旅行</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-date">
+              <span class="year">2024</span>
+              <span class="month-day">6月</span>
+            </div>
+            <div class="update-body">
+              <div class="update-card">
+                <h3>从大连海洋大学毕业</h3>
+                <p>本科阶段结束，完成学业并获得理学学士学位</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-date">
+              <span class="year">2023</span>
+              <span class="month-day">09/29</span>
+            </div>
+            <div class="update-body">
+              <div class="update-card">
+                <h3>保研厦门大学</h3>
+                <p>获得推荐免试研究生资格，拿到厦门大学offer</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-date">
+              <span class="year">2020</span>
+              <span class="month-day">09/19</span>
+            </div>
+            <div class="update-body">
+              <div class="update-card">
+                <h3>入学大连海洋大学</h3>
+                <p>开始本科学习生涯，开启四年大学生活</p>
               </div>
             </div>
           </article>
@@ -305,13 +369,12 @@
         </p>
         <div class="link-list" aria-label="联系链接">
           <a href="mailto:zhiyyeah@gmail.com">zhiyyeah@gmail.com</a>
-          <a href="https://github.com/yourname">GitHub</a>
         </div>
       </section>
     </main>
 
     <footer class="site-footer">
-      <p>&copy; <span data-year></span> 你的姓名. All rights reserved.</p>
+      <p>&copy; <span data-year></span> 叶志远. All rights reserved.</p>
     </footer>
 
     <script src="script.js"></script>
