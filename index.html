@@ -103,6 +103,10 @@
               <div class="update-card">
                 <h3>担任福建省城市足球联赛志愿者</h3>
                 <p>参与赛事志愿服务，负责现场协调工作</p>
+                <figure class="update-media">
+                  <img src="assets/updates/闽超志愿者.jpg" alt="闽超志愿者">
+                  <figcaption>福建省城市足球联赛志愿服务</figcaption>
+                </figure>
               </div>
             </div>
           </article>
@@ -116,6 +120,10 @@
               <div class="update-card">
                 <h3>参加2026遥感青年科学家研讨会</h3>
                 <p>汇报研究成果"基于深度学习方法的GOCI-2遥感影像超分辨率"</p>
+                <figure class="update-media">
+                  <img src="assets/updates/青年科学家论坛.JPG" alt="青年科学家论坛">
+                  <figcaption>2026遥感青年科学家研讨会</figcaption>
+                </figure>
               </div>
             </div>
           </article>
@@ -130,6 +138,10 @@
                 <div class="update-card">
                   <h3>环厦门岛骑行</h3>
                   <p>完成环岛骑行，用时2小时40分44秒</p>
+                  <figure class="update-media">
+                    <img src="assets/updates/环岛骑行.jpg" alt="环岛骑行">
+                    <figcaption>环厦门岛骑行</figcaption>
+                  </figure>
                 </div>
               </div>
             </article>
@@ -242,52 +254,46 @@
         <div class="hobby-layout">
           <div class="video-hobbies" aria-label="视频爱好占位">
             <article class="hobby-video">
-              <div class="video-list" aria-label="CSGO 视频列表">
-                <div class="video-placeholder" aria-label="CSGO 视频 01 占位">
-                  <span class="play-mark" aria-hidden="true"></span>
-                  <span>CSGO 视频 01</span>
+              <h3 class="hobby-title--green">台球</h3>
+              <p class="highlight-text">多次炸清和接清</p>
+              <div class="video-list-hidden" id="billiards-videos">
+                <div class="video-wrapper">
+                  <video controls preload="metadata" src="assets/videos/billiards/炸清.MP4"></video>
+                  <span class="video-label">炸清</span>
                 </div>
-                <div class="video-placeholder video-placeholder--small" aria-label="CSGO 视频 02 占位">
-                  <span class="play-mark" aria-hidden="true"></span>
-                  <span>CSGO 视频 02</span>
+                <div class="video-wrapper">
+                  <video controls preload="metadata" src="assets/videos/billiards/接清.MP4"></video>
+                  <span class="video-label">接清</span>
                 </div>
               </div>
-              <p class="project-card__meta">FPS / CSGO</p>
-              <h3>CSGO</h3>
-              <p>
-                这里可以放高光操作、残局回合、比赛片段或想保留的精彩瞬间。
-              </p>
+              <button class="expand-btn expand-btn--hobby" onclick="toggleHobbyVideos('billiards-videos', this)">查看集锦</button>
             </article>
             <article class="hobby-video">
-              <div class="video-list" aria-label="PUBG 视频列表">
+              <h3 class="hobby-title--green">CSGO</h3>
+              <p class="highlight-text">多次1V5</p>
+              <div class="video-list-hidden" id="csgo-videos">
+                <div class="video-wrapper">
+                  <video controls preload="metadata" src="assets/videos/csgo/1V5.MP4"></video>
+                  <span class="video-label">1V5</span>
+                </div>
+                <div class="video-wrapper">
+                  <video controls preload="metadata" src="assets/videos/csgo/5k.MP4"></video>
+                  <span class="video-label">5K</span>
+                </div>
+              </div>
+              <button class="expand-btn expand-btn--hobby" onclick="toggleHobbyVideos('csgo-videos', this)">查看集锦</button>
+            </article>
+            <article class="hobby-video">
+              <h3 class="hobby-title--green">PUBG</h3>
+              <p class="highlight-text">最高14K</p>
+              <div class="video-list-hidden" id="pubg-videos">
                 <video controls preload="metadata" src="assets/videos/PUBG蟑螂车.mp4"></video>
                 <div class="video-placeholder video-placeholder--small" aria-label="PUBG 视频 02 占位">
                   <span class="play-mark" aria-hidden="true"></span>
                   <span>PUBG 视频 02</span>
                 </div>
               </div>
-              <p class="project-card__meta">Battle Royale / PUBG</p>
-              <h3>PUBG</h3>
-              <p>
-                后续可以整理跳点、运营路线、决赛圈片段，或者放一段代表性视频。
-              </p>
-            </article>
-            <article class="hobby-video">
-              <div class="video-list" aria-label="台球视频列表">
-                <div class="video-placeholder" aria-label="台球视频 01 占位">
-                  <span class="play-mark" aria-hidden="true"></span>
-                  <span>台球视频 01</span>
-                </div>
-                <div class="video-placeholder video-placeholder--small" aria-label="台球视频 02 占位">
-                  <span class="play-mark" aria-hidden="true"></span>
-                  <span>台球视频 02</span>
-                </div>
-              </div>
-              <p class="project-card__meta">Billiards</p>
-              <h3>台球</h3>
-              <p>
-                可以放清台记录、练球片段、比赛视频，或者记录阶段性的技术进步。
-              </p>
+              <button class="expand-btn expand-btn--hobby" onclick="toggleHobbyVideos('pubg-videos', this)">查看集锦</button>
             </article>
           </div>
 

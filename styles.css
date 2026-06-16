@@ -376,11 +376,19 @@ h3 {
 .travel-block {
   background: var(--surface);
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  transition: box-shadow 200ms ease, transform 200ms ease;
 }
 
 .hobby-video {
-  padding: 18px;
+  padding: 24px;
+}
+
+.hobby-video:hover,
+.travel-block:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
 }
 
 .hobby-video p:last-child,
@@ -392,6 +400,57 @@ h3 {
   display: grid;
   gap: 12px;
   margin-bottom: 20px;
+}
+
+.video-list-hidden {
+  display: none;
+  gap: 12px;
+  margin: 16px 0;
+}
+
+.video-list-hidden.is-open {
+  display: grid;
+  gap: 12px;
+}
+
+.highlight-text {
+  color: var(--text);
+  font-weight: 600;
+  font-size: 16px;
+  margin: 0 0 16px;
+}
+
+.hobby-title--green {
+  margin: 0 0 12px;
+  padding: 8px 20px;
+  background: rgba(20, 125, 115, 0.15);
+  border-radius: 8px;
+  color: var(--teal-dark);
+  font-size: 22px;
+  font-weight: 700;
+  display: inline-block;
+  letter-spacing: 0.5px;
+}
+
+.expand-btn--hobby {
+  display: block;
+  width: 100%;
+  max-width: 160px;
+  margin: 16px auto 0;
+  padding: 10px 20px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--teal-dark);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 200ms ease, transform 200ms ease;
+}
+
+.expand-btn--hobby:hover {
+  background: var(--surface-tint);
+  border-color: var(--teal);
 }
 
 .video-placeholder {
@@ -415,13 +474,30 @@ h3 {
   min-height: 110px;
 }
 
-.video-list video {
+.video-list video,
+.video-list-hidden video {
   display: block;
   width: 100%;
   aspect-ratio: 16 / 9;
   background: #11191c;
   border: 1px solid var(--line);
   border-radius: 8px;
+}
+
+.video-wrapper {
+  position: relative;
+}
+
+.video-label {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  padding: 4px 10px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 4px;
+  color: var(--teal-dark);
+  font-size: 14px;
+  font-weight: 700;
 }
 
 .play-mark {
@@ -717,6 +793,10 @@ h3 {
   transition: box-shadow 200ms ease, transform 200ms ease;
 }
 
+.update-card:has(img.zoomed) {
+  transition: none;
+}
+
 .timeline-item:nth-child(2) .update-card {
   background: linear-gradient(135deg, rgba(184, 134, 11, 0.04) 0%, rgba(255, 255, 255, 0.8) 100%);
   border-left-color: rgba(184, 134, 11, 0.3);
@@ -760,6 +840,12 @@ h3 {
 .update-card:hover {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
   transform: translateY(-2px);
+}
+
+.update-card:has(img.zoomed),
+.update-card:has(img.zoomed):hover {
+  transform: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
 .timeline-item:hover::before {
@@ -809,6 +895,10 @@ h3 {
   transition: box-shadow 200ms ease, transform 200ms ease;
 }
 
+.update-card:has(img.zoomed) {
+  transition: none;
+}
+
 .timeline-item:nth-child(3n+2) .update-card {
   border-left-color: var(--coral);
 }
@@ -820,6 +910,12 @@ h3 {
 .update-card:hover {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
   transform: translateY(-2px);
+}
+
+.update-card:has(img.zoomed),
+.update-card:has(img.zoomed):hover {
+  transform: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
 .update-card h3 {
@@ -836,16 +932,39 @@ h3 {
 
 .update-media {
   min-width: 0;
-  margin: 0;
+  margin: 16px 0 0;
+  max-width: 280px;
+  cursor: pointer;
 }
 
 .update-media img {
   display: block;
   width: 100%;
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 4 / 3;
   object-fit: cover;
   border: 1px solid var(--line);
   border-radius: 8px;
+}
+
+.update-media img.zoomed {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 80vw;
+  max-height: 80vh;
+  width: auto;
+  height: auto;
+  aspect-ratio: auto;
+  z-index: 1000;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+}
+
+.update-media figcaption {
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 13px;
 }
 
 .update-media--grid {
@@ -893,12 +1012,6 @@ h3 {
   background:
     linear-gradient(180deg, transparent 34%, rgba(31, 42, 46, 0.58)),
     linear-gradient(135deg, #d86b4b, #b8860b);
-}
-
-.update-media figcaption {
-  margin-top: 8px;
-  color: var(--muted);
-  font-size: 13px;
 }
 
 .update-body {
@@ -1077,5 +1190,9 @@ h3 {
   .update-photo,
   .update-media--grid .update-photo {
     min-height: 160px;
+  }
+
+  .update-media {
+    max-width: 100%;
   }
 }
