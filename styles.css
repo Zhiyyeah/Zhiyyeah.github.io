@@ -1189,3 +1189,139 @@ h3 {
     max-width: 100%;
   }
 }
+
+/* ===== 旅行足迹：城市卡片墙 ===== */
+.travel-intro {
+  max-width: 640px;
+  margin: 0 0 20px;
+  color: var(--muted);
+}
+
+.city-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 16px;
+}
+
+.city-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 12px;
+  text-align: center;
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+
+.city-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+}
+
+.city-card__photo {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.city-card__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.city-card__photo--placeholder {
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, var(--teal), var(--teal-dark));
+  color: #fff;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.city-card--abroad .city-card__photo--placeholder {
+  background: linear-gradient(135deg, var(--gold), #d4a84b);
+}
+
+.city-card__name {
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--text);
+}
+
+.city-card__desc {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+/* ===== 旅行足迹：地图底图 ===== */
+.trail-map {
+  position: relative;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.trail-map__img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.city-dot {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  background: var(--teal);
+  color: #fff;
+  font-weight: 700;
+  font-size: 15px;
+  border: 2.5px solid #fff;
+  border-radius: 50%;
+  box-shadow: 0 3px 10px rgba(31,42,46,0.2);
+  cursor: pointer;
+  transition: transform 200ms ease;
+  z-index: 2;
+}
+
+.city-dot:hover {
+  transform: translate(-50%, -50%) scale(1.2);
+  z-index: 3;
+}
+
+.abroad-row {
+  display: flex;
+  gap: 20px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+
+.abroad-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 10px 14px;
+}
+
+.abroad-card img {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2.5px solid #fff;
+  box-shadow: 0 3px 10px rgba(31,42,46,0.2);
+}
+
+.abroad-card span {
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--text);
+}
