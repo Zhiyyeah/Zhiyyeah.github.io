@@ -50,20 +50,6 @@ function toggleTimeline() {
   }
 }
 
-function toggleHobbyVideos(videoId, btn) {
-  const videoContainer = document.getElementById(videoId);
-  
-  if (videoContainer) {
-    videoContainer.classList.toggle("is-open");
-    
-    if (videoContainer.classList.contains("is-open")) {
-      btn.textContent = "收起集锦";
-    } else {
-      btn.textContent = "查看集锦";
-    }
-  }
-}
-
 document.addEventListener("DOMContentLoaded", function() {
   const photos = document.querySelectorAll(".update-media img");
   
