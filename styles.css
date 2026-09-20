@@ -908,14 +908,15 @@ h3 {
 .update-media {
   min-width: 0;
   margin: 16px 0 0;
-  max-width: 280px;
+  max-width: 480px;
   cursor: pointer;
 }
 
 .update-media img {
   display: block;
   width: 100%;
-  aspect-ratio: 4 / 3;
+  height: auto;
+  max-width: 100%;
   object-fit: cover;
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -1324,4 +1325,10 @@ h3 {
   font-weight: 700;
   font-size: 15px;
   color: var(--text);
+}
+
+/* 全局图片响应式修复 */
+img {
+  max-width: 100%;
+  height: auto;
 }
