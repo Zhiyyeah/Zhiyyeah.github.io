@@ -41,7 +41,7 @@ window.projectDetails = {
         "bullets": [
           "构建包含真实模糊核和噪声的退化池，生成 11,954 个样本，按 7:2:1 划分训练、验证与测试集。",
           "设计 W-MREA 水体多尺度残差边缘注意力网络，结合 MAE 与光谱角损失，对比 EDSR、RCAN、DBPN、HAT 和 FreMamba。",
-          "将重建影像用于 NDVI/OTSU 浒苔提取、Chl-a 反演，以及基于最大互相关（MCC）的海表流场分析。"
+          "将重建影像用于 NDVI/Otsu 浒苔提取、Chl-a 反演，以及基于最大互相关（MCC）的海表流场分析。"
         ]
       },
       {
@@ -173,17 +173,17 @@ window.projectDetails = {
     "tags": [
       "Google Earth Engine",
       "Sentinel-2",
-      "OTSU",
+      "Otsu",
       "ENVI",
       "时序分析"
     ],
     "metric1": "2015—2022",
     "metric1Label": "海冰影像分析时段",
-    "metric2": "多源长时序遥感",
+    "metric2": "多源遥感",
     "metric2Label": "多传感器时序观测",
     "metric3": "已授权",
     "metric3Label": "海冰监测系统软件著作权",
-    "source": "国家级大学生创新创业项目 · 2023",
+    "source": "国家级大学生创新创业项目 · 2024",
     "intro": "围绕辽东湾冬季冰情，利用多源遥感提取海冰分布与面积，分析冰情和气温的关系，为港口、航道与海洋工程的风险防范提供信息。",
     "sections": [
       {
@@ -197,8 +197,8 @@ window.projectDetails = {
         "title": "我的工作",
         "paragraphs": [],
         "bullets": [
-          "负责海冰提取算法构建和代码编写，在 GEE 中批量调用 Sentinel-2 影像，开展 2015—2022 年海冰提取工作。",
-          "根据海冰与海水的光谱差异，引入 OTSU 自动阈值分割，完成海冰识别、面积统计与结果输出。",
+          "负责海冰提取算法构建和代码编写，在 GEE 中批量调用 Sentinel-2 影像，开展 2015—2022 年海冰监测。",
+          "结合海冰与海水的光谱差异，引入 Otsu 自动阈值分割，完成海冰识别、面积统计与结果输出。",
           "将算法流程整理为《辽东湾海冰监测系统》，该软件著作权已获得授权。"
         ]
       },
@@ -227,7 +227,7 @@ window.projectDetails = {
   },
   "internship": {
     "id": "internship",
-    "title": "遥感影像分割软件 优化与部署",
+    "title": "遥感森林分割软件研制",
     "subtitle": "SegFormer 森林语义分割软件的跨平台部署与工程落地",
     "category": "企业实习",
     "period": "2026.05 — 2026.07",
@@ -292,7 +292,7 @@ window.projectDetails = {
       {
         "src": "assets/project/internship/software-ui.jpg",
         "alt": "森林分割软件图形界面：地图叠加显示与一键批量处理",
-        "caption": "森林分割软件的图形界面与批量处理入口"
+        "caption": "森林分割软件的图形界面与批量处理入口（部分信息已打码）"
       },
       {
         "src": "assets/project/internship/forest-mask.jpg",
