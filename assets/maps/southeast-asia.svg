@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 499" role="img" aria-labelledby="title desc">
+<title id="title">马来半岛及新加坡地理底图</title>
+<desc id="desc">Natural Earth 1:110m 国界数据，墨卡托投影；陆地轮廓与城市点采用相同坐标系统。</desc>
+<rect width="560" height="499" fill="#e9f3f5"/>
+<path d="M124.4 0V499" stroke="#ccdee3" stroke-width="1"/>
+<text x="124.4" y="487" text-anchor="middle" fill="#6b8991" font-size="14">100°E</text>
+<path d="M0 499.0H560" stroke="#ccdee3" stroke-width="1"/>
+<text x="12" y="516.0" fill="#6b8991" font-size="14">0°N</text>
+<path d="M78.6,487.6L60.4,434.2L37.4,385.6L0.0,359.5L0.0,207.9L23.0,233.4L71.1,275.6L105.4,301.5L164.4,368.4L227.6,369.4L279.9,412.0L315.9,464.1L363.3,492.5L360.1,499.0L90.6,499.0Z" fill="#dfebdf" stroke="#aac5b4" stroke-width="1.1" fill-rule="evenodd" stroke-linejoin="round"/>
+<path d="M145.7,0.0L153.0,35.8L187.7,71.7L225.4,79.0L257.7,111.4L237.3,137.1L196.3,144.6L191.4,112.5L140.6,85.1L129.8,96.2L105.2,72.2L94.6,41.2L61.5,5.8L55.6,0.0L24.7,0.0L21.1,12.9L16.8,0.0Z" fill="#dfebdf" stroke="#aac5b4" stroke-width="1.1" fill-rule="evenodd" stroke-linejoin="round"/>
+<path d="M237.3,137.1L257.7,111.4L272.0,117.3L308.7,155.0L334.8,196.8L338.4,238.8L331.8,267.1L337.8,288.6L342.4,325.4L364.3,342.6L388.8,397.6L387.6,418.6L343.4,422.8L284.6,376.7L211.0,327.3L203.7,295.6L167.7,253.9L159.1,202.3L136.7,168.2L143.5,122.7L129.8,96.2L140.6,85.1L191.4,112.5L196.3,144.6Z" fill="#dfebdf" stroke="#aac5b4" stroke-width="1.1" fill-rule="evenodd" stroke-linejoin="round"/>
+<text x="186.7" y="156.5" text-anchor="middle" fill="#74968d" font-size="17" font-family="sans-serif" font-weight="600">马来西亚</text>
+<text x="364.0" y="461.7" text-anchor="middle" fill="#74968d" font-size="17" font-family="sans-serif" font-weight="600">新加坡</text>
+<text x="548" y="25" text-anchor="end" fill="#728d94" font-size="13" font-family="sans-serif">地理数据：Natural Earth</text>
+</svg>

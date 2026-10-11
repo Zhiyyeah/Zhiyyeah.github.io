@@ -191,8 +191,8 @@
                   <h3>厦门大学海洋开放日</h3>
                   <p>参加厦门大学海洋开放日志愿服务，负责科普讲解与现场引导</p>
                   <figure class="update-media">
-                    <img src="assets/updates/海洋开放日2025.jpg" alt="海洋开放日拼图活动">
-                    <figcaption>海洋开放日：为参观家庭讲解海洋拼图</figcaption>
+                    <img src="assets/updates/海洋开放日2025.jpg" alt="海洋开放日科普活动">
+                    <figcaption>海洋开放日 2025：为参观家庭开展科普讲解</figcaption>
                   </figure>
                 </div>
               </div>
@@ -241,10 +241,9 @@
                 <div class="update-card">
                   <h3>近海海洋环境科学国家重点实验室开放日</h3>
                   <p>参与国家重点实验室开放日，为参观家庭开展互动科普</p>
-                  <figure class="update-media update-media--grid" style="max-width: 620px;">
-                    <img src="assets/updates/海洋开放日1.jpg" alt="海丝二号科普展板前">
-                    <img src="assets/updates/海洋开放日2.jpg" alt="与参观家庭互动">
-                    <figcaption>海洋开放日：海丝二号展板前 与 实验室互动科普</figcaption>
+                  <figure class="update-media">
+                    <img src="assets/updates/海洋开放日2024.jpg" alt="海洋开放日科普活动">
+                    <figcaption>海洋开放日 2024：海丝二号展板与实验室互动科普</figcaption>
                   </figure>
                 </div>
               </div>
@@ -308,31 +307,43 @@
           <p class="eyebrow">Travel</p>
           <h2 id="travel-title">旅行足迹</h2>
         </div>
-        <p class="travel-intro">用脚步丈量世界，每一个标记都是一段故事。将鼠标悬停在城市上查看照片。</p>
-        <div class="trail-map" id="trail-map">
-        <img src="assets/china-outline.svg" alt="中国地图" class="trail-map__img">
-        <!-- 国内城市点（百分比 = SVG坐标/1000, /850） -->
-        <span class="city-dot" style="left:69.6%;top:37.2%" data-city="北京">北</span>
-        <span class="city-dot" style="left:77.8%;top:39.9%" data-city="大连">大</span>
-        <span class="city-dot" style="left:75.9%;top:47.6%" data-city="青岛">青</span>
-        <span class="city-dot" style="left:57.8%;top:52.2%" data-city="西安">西</span>
-        <span class="city-dot" style="left:73.5%;top:58.5%" data-city="南京">南</span>
-        <span class="city-dot" style="left:75.5%;top:63.3%" data-city="杭州">杭</span>
-        <span class="city-dot" style="left:54.1%;top:65.2%" data-city="重庆">重</span>
-        <span class="city-dot" style="left:64.1%;top:68.8%" data-city="长沙">长</span>
-        <span class="city-dot" style="left:70.0%;top:81.2%" data-city="潮州">潮</span>
-        <span class="city-dot" style="left:65.1%;top:85.2%" data-city="澳门">澳</span>
-      </div>
-      <div class="abroad-row">
-        <div class="abroad-card">
-          <img src="assets/updates/吉隆坡双子塔.jpg" alt="吉隆坡">
-          <span>吉隆坡</span>
+        <div class="travel-map-layout">
+          <div class="travel-map-panel">
+            <h3>国内足迹</h3>
+            <p class="travel-map-hint">左右滑动查看完整地图</p>
+            <div class="travel-map-viewport" role="region" aria-label="国内旅行足迹地图，可横向滚动">
+              <div class="travel-map-stage travel-map-stage--china" data-travel-map="china">
+                <img src="assets/maps/china.svg" alt="中国及周边地区的地理轮廓" />
+                <div class="travel-markers"></div>
+              </div>
+            </div>
+          </div>
+          <div class="travel-map-panel">
+            <h3>海外足迹</h3>
+            <div class="travel-map-viewport" role="region" aria-label="马来半岛及新加坡旅行足迹地图">
+              <div class="travel-map-stage travel-map-stage--sea" data-travel-map="sea">
+                <img src="assets/maps/southeast-asia.svg" alt="马来半岛及新加坡的地理轮廓" />
+                <div class="travel-markers"></div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="abroad-card">
-          <img src="assets/updates/新加坡星耀樟宜.jpg" alt="新加坡">
-          <span>新加坡</span>
+        <div class="travel-places" id="travel-place-list" role="group" aria-label="按地点查看足迹照片"></div>
+        <div class="travel-album" id="travel-album">
+          <div class="travel-album__heading">
+            <div>
+              <p class="eyebrow">Photo Album</p>
+              <h3>足迹相册</h3>
+            </div>
+            <p id="travel-album-count" aria-live="polite"></p>
+          </div>
+          <div class="travel-filters" role="group" aria-label="筛选足迹照片">
+            <button class="travel-filter is-active" type="button" data-travel-filter="all" aria-pressed="true">全部照片</button>
+            <button class="travel-filter" type="button" data-travel-filter="china" aria-pressed="false">国内与海上</button>
+            <button class="travel-filter" type="button" data-travel-filter="sea" aria-pressed="false">东南亚</button>
+          </div>
+          <div id="travel-photo-list"></div>
         </div>
-      </div>
       </section>
 
       <section
@@ -344,10 +355,6 @@
           <p class="eyebrow">Contact</p>
           <h2 id="contact-title">联系我</h2>
         </div>
-        <p>
-          暂时使用占位链接。后续可以替换为邮箱、GitHub、Google Scholar
-          或其他社交主页。
-        </p>
         <div class="link-list" aria-label="联系链接">
           <a href="mailto:zhiyyeah@gmail.com">zhiyyeah@gmail.com</a>
         </div>
@@ -358,6 +365,7 @@
       <p>&copy; <span data-year></span> 叶志远. All rights reserved.</p>
     </footer>
 
+    <script src="travel-photos.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
