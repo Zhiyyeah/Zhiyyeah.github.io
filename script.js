@@ -337,6 +337,16 @@ document.addEventListener("DOMContentLoaded", function() {
     });
     travelPlacesNode.append(button);
   });
+
+  const placesToggle = document.getElementById("travel-places-toggle");
+  if (placesToggle) {
+    placesToggle.addEventListener("click", () => {
+      const isOpen = travelPlacesNode.classList.toggle("is-open");
+      placesToggle.textContent = isOpen ? "收起地点标签" : "展开地点标签";
+      placesToggle.setAttribute("aria-expanded", String(isOpen));
+    });
+  }
+
   renderTravelPhotos("all");
 
   const chinaViewport = document.querySelector(".travel-map-stage--china")?.parentElement;

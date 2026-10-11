@@ -11,10 +11,10 @@ tags: PyTorch, Python, GOCI-2, Landsat-8/9, 深度学习, Linux, Conda
 metric1: 8×
 metric1Label: 空间超分辨率倍率
 metric2: 11,954
-metric2Label: 退化样本总量
+metric2Label: 样本总量
 metric3: 55.84 dB
 metric3Label: 独立测试集平均 PSNR
-source: 组会与周报 · 更新至 2026.10
+source: 硕士课题
 featured: 海表流场对比（T3—T4，间隔 1 h）
 ---
 

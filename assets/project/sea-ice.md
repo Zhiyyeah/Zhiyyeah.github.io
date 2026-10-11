@@ -14,7 +14,7 @@ metric2: 多源遥感
 metric2Label: 多传感器时序观测
 metric3: 已授权
 metric3Label: 海冰监测系统软件著作权
-source: 项目申请书与答辩材料 · 个人成果确认
+source: 国家级大学生创新创业项目 · 2024
 ---
 
 # 辽东湾海冰监测与预警

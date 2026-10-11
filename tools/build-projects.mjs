@@ -7,7 +7,7 @@ import { fileURLToPath } from 'node:url';
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const directory = resolve(root, 'assets/project');
 const projects = {};
-for (const id of ['super-resolution', 'vegetation', 'sea-ice']) {
+for (const id of ['super-resolution', 'vegetation', 'sea-ice', 'internship']) {
   const source = readFileSync(resolve(directory, `${id}.md`), 'utf8').replace(/\r\n/g, '\n');
   const match = source.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
   if (!match) throw new Error(`Missing front matter: ${id}`);

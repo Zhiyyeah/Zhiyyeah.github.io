@@ -34,7 +34,7 @@
     │   └── southeast-asia.svg  # 东南亚足迹底图
     ├── project/
     │   ├── README.md       # 资料依据、数值口径与维护说明（不随网站发布）
-    │   ├── *.md            # 三个项目的展示正文
+    │   ├── *.md            # 四个项目的展示正文
     │   ├── projects.js     # 生成的详情数据，支持直接打开本地页面
     │   └── */              # 网页使用的 JPG；原始 PNG 与旧 WebP 已删除
     ├── updates/            # 「近期动态」时间线配图
@@ -54,7 +54,7 @@
 | 首屏 | `#home` | 头像、姓名、一句话简介、快捷跳转按钮 |
 | 关于我 | `#about` | 研究方向、技术栈、兴趣爱好 + 所在地/身份/方向速览 |
 | 近期动态 | `#notes` | 倒序时间线，默认展示 3 条，其余折叠 |
-| 项目与经历 | `#work` | 3 张项目卡片，点击展示统一的详情弹窗，每项最多 5 张配图 |
+| 项目与经历 | `#work` | 4 张卡片（三个科研项目 + 一段企业实习），点击展示统一的详情弹窗，每项最多 5 张配图 |
 | 旅行足迹 | `#travel` | 国内 / 海外双地图 + 地点标签 + 可筛选相册 |
 | 联系我 | `#contact` | 邮箱入口 `zhiyyeah@gmail.com` |
 
@@ -70,7 +70,7 @@
 
 **项目详情**（`project-details.js`）
 
-- 支持 `#project-super-resolution`、`#project-vegetation`、`#project-sea-ice` 链接直接打开详情。
+- 支持 `#project-super-resolution`、`#project-vegetation`、`#project-sea-ice`、`#project-internship` 链接直接打开详情。
 - Esc、关闭按钮或点击弹窗外侧关闭详情，焦点返回项目卡片。
 - 图示可切换、点击打开 JPG 大图；海表流场默认并排展示原始与超分辨率结果。
 
@@ -145,7 +145,7 @@ git push origin main
 
 ## 约定与注意事项
 
-- **响应式**：主要断点 `850px` / `820px` / `700px` / `560px` / `480px`；窄屏下项目详情和双地图改为上下排列、照片网格降为 2 列再到 1 列。全局 `img { max-width: 100%; height: auto; }` 兜底。
+- **响应式**：主要断点 `1080px` / `850px` / `820px` / `700px` / `560px` / `480px`；卡片网格按 4 / 2 / 1 列自适应，窄屏下项目详情和双地图改为上下排列、照片网格降为 2 列再到 1 列。全局 `img { max-width: 100%; height: auto; }` 兜底。
 - **可访问性**：导航、地图、相册容器均带 `aria-label`；筛选与标记使用 `aria-pressed` 表达选中态；预览卡通过 `aria-describedby` 关联触发元素；装饰性 SVG 与图标标 `aria-hidden`。
 - **性能**：项目卡片、时间线与相册图片使用 `loading="lazy"` + `decoding="async"`，详情图示在打开项目后加载。
 - **不随网站发布的文件**：由 `_config.yml` 的 `exclude` 列表决定，新增维护文档时在这里登记。Jekyll 的 `exclude` 会整体覆盖内置默认值，因此该文件里同时列出了 `Gemfile`、`node_modules` 等默认项。

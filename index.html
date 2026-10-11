@@ -119,17 +119,29 @@
           <article class="timeline-item">
             <div class="timeline-date">
               <span class="year">2026</span>
-              <span class="month-day">06/15</span>
+              <span class="month-day">5-7月</span>
             </div>
             <div class="update-body">
               <div class="update-card">
-                <h3>开始搭建个人网站</h3>
-                <p>初步搭建个人主页，用于展示学习经历、研究方向和个人兴趣</p>
+                <h3>企业实习：遥感森林分割软件研制</h3>
+                <p>负责森林分割软件的跨平台部署与环境配置（Conda）、TensorRT 推理加速、影像预处理提速，以及软件 bug 修复与研制报告撰写</p>
               </div>
             </div>
           </article>
 
           <div class="timeline-hidden" id="hidden-timeline">
+            <article class="timeline-item">
+              <div class="timeline-date">
+                <span class="year">2026</span>
+                <span class="month-day">06/15</span>
+              </div>
+              <div class="update-body">
+                <div class="update-card">
+                  <h3>开始搭建个人网站</h3>
+                  <p>初步搭建个人主页，用于展示学习经历、研究方向和个人兴趣</p>
+                </div>
+              </div>
+            </article>
             <article class="timeline-item">
               <div class="timeline-date">
                 <span class="year">2026</span>
@@ -276,7 +288,7 @@
           <p class="eyebrow">Projects & Work</p>
           <h2 id="work-title">项目与经历</h2>
         </div>
-        <p class="project-section-lead">从遥感数据处理到模型设计与应用验证，点击项目查看完整介绍。</p>
+        <p class="project-section-lead">从遥感数据处理、模型设计到软件部署与工程落地，点击卡片查看完整介绍。</p>
         <div class="card-grid">
           <a class="project-card" href="#project-super-resolution" data-project="super-resolution" aria-haspopup="dialog">
             <div class="project-card__visual">
@@ -287,21 +299,35 @@
             <p class="project-card__meta">2025.03-至今</p>
             <h3>遥感影像超分辨率算法研究</h3>
             <p class="project-card__summary">
-              构建真实退化数据与 W-MREA 水体重建模型，开展 8 倍超分辨率及浒苔、叶绿素与海流应用验证。
+              构建真实退化数据、搭建深度学习模型W-MREA，进行遥感影像的 8 倍超分辨率并应用于浒苔监测、海表流场反演等工作。
             </p>
             <div class="project-card__footer"><span>水色遥感 · 深度学习</span><span class="project-card__action">查看详情 <span aria-hidden="true">↗</span></span></div>
+            </div>
+          </a>
+          <a class="project-card" href="#project-internship" data-project="internship" aria-haspopup="dialog">
+            <div class="project-card__visual">
+              <img src="assets/project/internship/forest-mask.jpg" alt="森林分割结果：灰度影像上以红色标注模型预测的森林区域" loading="lazy" decoding="async" width="690" height="607" />
+              <span class="project-card__number" aria-hidden="true">02</span>
+            </div>
+            <div class="project-card__body">
+            <p class="project-card__meta">2026.05-2026.07</p>
+            <h3>遥感影像语义分割软件优化</h3>
+            <p class="project-card__summary">
+              负责森林分割软件的工程落地：进行软件的跨平台部署、Conda 环境配置、TensorRT 推理加速、影像预处理提速与bug 修复。
+            </p>
+            <div class="project-card__footer"><span>企业实习 · 工程落地</span><span class="project-card__action">查看详情 <span aria-hidden="true">↗</span></span></div>
             </div>
           </a>
           <a class="project-card" href="#project-vegetation" data-project="vegetation" aria-haspopup="dialog">
             <div class="project-card__visual">
               <img src="assets/project/vegetation/研究区域第二版_line300.jpg" alt="艾比湖流域研究区域及地理位置" loading="lazy" decoding="async" width="3389" height="1778" />
-              <span class="project-card__number" aria-hidden="true">02</span>
+              <span class="project-card__number" aria-hidden="true">03</span>
             </div>
             <div class="project-card__body">
             <p class="project-card__meta">2024.01-2024.05</p>
             <h3>艾比湖流域植被覆盖度时空分布研究</h3>
             <p class="project-card__summary">
-              处理 1,712 景 Landsat-8 影像，重建长期植被覆盖度序列，结合物候特征与随机森林识别耕地。
+              处理 1,712 景 Landsat-8 影像，重建长期植被覆盖度序列，结合不同植物的物候特征使用随机森林方法进行地物分类。
             </p>
             <div class="project-card__footer"><span>时序分析 · 地物分类</span><span class="project-card__action">查看详情 <span aria-hidden="true">↗</span></span></div>
             </div>
@@ -309,10 +335,10 @@
           <a class="project-card" href="#project-sea-ice" data-project="sea-ice" aria-haspopup="dialog">
             <div class="project-card__visual">
               <img src="assets/project/sea-ice/ice-distribution.jpg" alt="2022 年 1 月多源遥感提取的辽东湾海冰分布与面积" loading="lazy" decoding="async" width="1002" height="709" />
-              <span class="project-card__number" aria-hidden="true">03</span>
+              <span class="project-card__number" aria-hidden="true">04</span>
             </div>
             <div class="project-card__body">
-            <p class="project-card__meta">国家级大创项目</p>
+            <p class="project-card__meta">2023.01-2023.05</p>
             <h3>辽东湾海冰监测与预警研究</h3>
             <p class="project-card__summary">
               负责海冰提取算法与代码实现，结合多源遥感开展冰情分析，《辽东湾海冰监测系统》软著已授权。
@@ -349,6 +375,7 @@
             </div>
           </div>
         </div>
+        <button class="expand-btn" id="travel-places-toggle" type="button" aria-controls="travel-place-list" aria-expanded="false">展开地点标签</button>
         <div class="travel-places" id="travel-place-list" role="group" aria-label="按地点查看足迹照片"></div>
         <details class="travel-album" id="travel-album">
           <summary class="travel-album__heading">
