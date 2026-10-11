@@ -5,7 +5,7 @@ date: 2026-10-12
 category: "生活随笔"
 tags: ["南海航次", "银河", "随笔"]
 description: "在南海科考航次的某个夜晚，我第一次真正感受到宇宙的浩瀚与时间的漫长。"
-cover: "../assets/updates/科考夜航.jpg"
+cover: "assets/nanhai-night-sky.jpg"
 draft: false
 ---
 
