@@ -12,3 +12,6 @@ exclude:
   # 维护文档：仅供本地与仓库内阅读，不随网站发布
   - assets/project/README.md
   - assets/travel/README.md
+  # 博客文章的 Markdown 源文件：由 tools/build-blog.mjs 渲染成 blog/<slug>.html，
+  # 源文件不必发布（否则 Jekyll 会把带 frontmatter 的 .md 也渲染成一份无样式的副本）
+  - blog/posts/

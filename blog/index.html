@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>博客 | 叶志远的个人主页</title>
+    <meta
+      name="description"
+      content="叶志远的博客：科研笔记、技术分享、奇思妙想与生活随笔。可按分类筛选，也可直接搜索标题、摘要与标签。"
+    />
+    <link rel="canonical" href="https://zhiyyeah.github.io/blog/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="博客 | 叶志远的个人主页" />
+    <meta
+      property="og:description"
+      content="科研笔记、技术分享、奇思妙想与生活随笔。"
+    />
+    <meta property="og:url" content="https://zhiyyeah.github.io/blog/" />
+    <meta property="og:image" content="https://zhiyyeah.github.io/assets/avatar.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="blog.css" />
+  </head>
+  <body class="blog-body">
+    <a class="skip-link" href="#blog-list">跳到文章列表</a>
+
+    <header class="site-header" data-header>
+      <a class="brand" href="../index.html" aria-label="返回首页">叶志远</a>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="../index.html#about">关于</a>
+        <a href="../index.html#notes">动态</a>
+        <a href="../index.html#work">项目</a>
+        <a href="../index.html" class="is-active" aria-current="page">博客</a>
+        <a href="../index.html#travel">旅行足迹</a>
+        <a href="../index.html#contact">联系</a>
+      </nav>
+    </header>
+
+    <main class="blog-page">
+      <section class="blog-hero">
+        <p class="eyebrow">Blog</p>
+        <h1 class="blog-hero__title">博客</h1>
+        <p class="blog-hero__lead">
+          科研笔记、技术分享、奇思妙想与生活随笔。选一个分类，或者直接搜关键词。
+        </p>
+      </section>
+
+      <section class="blog-toolbar" aria-label="筛选与搜索">
+        <div class="blog-filters" role="group" aria-label="按分类筛选">
+          <button
+            class="blog-filter is-active"
+            type="button"
+            data-filter="all"
+            data-description="全部文章，按发布时间从新到旧排列。"
+            aria-pressed="true"
+          >全部</button>
+          <!-- BLOG:CATEGORIES:START -->
+<button class="blog-filter" type="button" data-filter="research" data-description="遥感、深度学习、论文阅读与科研心得。" aria-pressed="false">科研笔记<span class="blog-filter__count">0</span></button>
+<button class="blog-filter" type="button" data-filter="tech" data-description="Python、AI、开发工具、环境配置与问题解决。" aria-pressed="false">技术分享<span class="blog-filter__count">0</span></button>
+<button class="blog-filter" type="button" data-filter="ideas" data-description="突发灵感、个人思考与尚未成熟的想法。" aria-pressed="false">奇思妙想<span class="blog-filter__count">0</span></button>
+<button class="blog-filter" type="button" data-filter="life" data-description="旅行、科考航次、日常见闻与生活感悟。" aria-pressed="false">生活随笔<span class="blog-filter__count">1</span></button>
+<!-- BLOG:CATEGORIES:END -->
+        </div>
+        <div class="blog-tools">
+          <label class="blog-search">
+            <span class="visually-hidden">搜索文章</span>
+            <input
+              type="search"
+              id="blog-search"
+              placeholder="搜索标题、摘要或标签…"
+              autocomplete="off"
+            />
+          </label>
+          <div class="blog-sort" data-sort>
+            <span class="blog-sort__label" id="blog-sort-label">排序</span>
+            <button
+              class="blog-sort__button"
+              type="button"
+              aria-haspopup="listbox"
+              aria-expanded="false"
+              aria-labelledby="blog-sort-label blog-sort-value"
+            >
+              <span class="blog-sort__value" id="blog-sort-value">最新优先</span>
+              <span class="blog-sort__chevron" aria-hidden="true"></span>
+            </button>
+            <ul class="blog-sort__menu" role="listbox" aria-labelledby="blog-sort-label" hidden>
+              <li class="blog-sort__option" role="option" data-value="new" aria-selected="true">最新优先</li>
+              <li class="blog-sort__option" role="option" data-value="old" aria-selected="false">最早优先</li>
+              <li class="blog-sort__option" role="option" data-value="title" aria-selected="false">按标题</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <p class="blog-hint" id="blog-hint" aria-live="polite"></p>
+
+      <section class="post-list" id="blog-list" aria-label="文章列表">
+        <!-- BLOG:LIST:START -->
+<article class="post-card"
+ data-slug="nanhai-starlight"
+ data-category="life"
+ data-date="2026-10-12"
+ data-title="那束光，走了很久才与我相遇"
+ data-search="那束光，走了很久才与我相遇 在南海科考航次的某个夜晚，我第一次真正感受到宇宙的浩瀚与时间的漫长。 南海航次 银河 随笔 生活随笔">
+<a class="post-card__cover" href="nanhai-starlight.html" tabindex="-1" aria-hidden="true"><img src="../assets/updates/科考夜航.jpg" alt="" loading="lazy" decoding="async"></a>
+<div class="post-card__body">
+<div class="post-card__meta">
+<a class="post-card__category" href="index.html?category=life">生活随笔</a>
+<time datetime="2026-10-12">2026.10.12</time>
+<span class="post-card__time">3 分钟</span>
+</div>
+<h3 class="post-card__title"><a href="nanhai-starlight.html">那束光，走了很久才与我相遇</a></h3>
+<p class="post-card__excerpt">在南海科考航次的某个夜晚，我第一次真正感受到宇宙的浩瀚与时间的漫长。</p>
+<div class="post-card__tags"><span class="post-card__tag">南海航次</span><span class="post-card__tag">银河</span><span class="post-card__tag">随笔</span></div>
+</div>
+</article>
+<!-- BLOG:LIST:END -->
+      </section>
+
+      <div class="blog-empty" id="blog-empty" hidden>
+        <p class="blog-empty__title">没有找到匹配的文章</p>
+        <p class="blog-empty__text">换个关键词试试，或者点「全部」看看所有文章。</p>
+        <button class="button button--secondary" type="button" id="blog-reset">清除筛选</button>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <p>&copy; <span data-year></span> 叶志远. All rights reserved.</p>
+    </footer>
+
+    <script src="blog.js"></script>
+  </body>
+</html>

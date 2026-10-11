@@ -13,7 +13,7 @@
 - 原生 JavaScript（ES2020+，无框架、无打包工具）
 - 本地 SVG 地图（Natural Earth 投影底图）
 
-克隆下来直接打开 `index.html` 即可运行，不需要 `npm install`。修改项目 Markdown 后，用 Node.js 执行 `node tools/build-projects.mjs` 同步详情数据；生成文件随网站一起提交。
+克隆下来直接打开 `index.html` 即可运行，不需要 `npm install`。内容用 Markdown 维护、用 Node 脚本生成：改项目详情后执行 `node tools/build-projects.mjs`，写博客后执行 `node tools/build-blog.mjs`。生成的文件随网站一起提交，所以线上不需要任何构建步骤。
 
 ## 目录结构
 
@@ -26,7 +26,15 @@
 ├── travel-photos.js        # 足迹照片数据集 window.travelPhotos（48 条记录）
 ├── _config.yml             # GitHub Pages 构建配置：排除不发布到网站的维护文档
 ├── tools/
-│   └── build-projects.mjs  # 从项目 Markdown 同步网页详情数据
+│   ├── build-projects.mjs  # 从项目 Markdown 同步网页详情数据
+│   └── build-blog.mjs      # 从博客 Markdown 生成文章页、列表卡片与首页最新文章
+├── blog/
+│   ├── README.md           # 博客维护说明（新增文章、图片、分类、发布）
+│   ├── posts/              # 文章源文件（Markdown + frontmatter）
+│   ├── assets/             # 文章配图与封面
+│   ├── blog.css / blog.js  # 博客样式与交互
+│   ├── index.html          # 博客列表页（卡片由脚本注入）
+│   └── <slug>.html         # 每篇文章的独立静态页（脚本生成）
 └── assets/
     ├── avatar.jpg          # 首页头像
     ├── maps/
@@ -55,6 +63,8 @@
 | 关于我 | `#about` | 研究方向、技术栈、兴趣爱好 + 所在地/身份/方向速览 |
 | 近期动态 | `#notes` | 倒序时间线，默认展示 3 条，其余折叠 |
 | 项目与经历 | `#work` | 4 张卡片（三个科研项目 + 一段企业实习），点击展示统一的详情弹窗，每项最多 5 张配图 |
+| 最新文章 | `#blog` | 首页的博客入口，展示最近三篇文章（由构建脚本注入） |
+| 博客 | `blog/` | 独立博客页：分类筛选、搜索、排序、空状态，每篇文章有独立静态页 |
 | 旅行足迹 | `#travel` | 国内 / 海外双地图 + 地点标签 + 可筛选相册 |
 | 联系我 | `#contact` | 邮箱入口 `zhiyyeah@gmail.com` |
 
@@ -82,11 +92,21 @@
 - 点击标记或地点标签会筛选相册、自动展开 `<details>` 并平滑滚动过去。
 - 相册支持「全部照片 / 国内与海上 / 东南亚」筛选，按年份分组倒序展示，点击图片在新标签页打开原图。
 
+**博客**（`blog/blog.js` + `blog/blog.css`）
+- 文章由 `node tools/build-blog.mjs` 渲染成独立静态页；列表卡片注入 `blog/index.html`，最新三篇注入首页 `#blog` 板块。
+- 列表页支持分类筛选（也支持 `?category=key` 直达）、标题/摘要/标签搜索、三种排序和空状态提示，全部在前端完成。
+- 文章页含自动目录（滚动高亮当前小节）、代码高亮与一键复制、图片点击放大、上一篇/下一篇与返回列表入口。
+- 即使浏览器禁用 JavaScript，静态生成的卡片列表与文章正文依然可读。
+
 ## 维护内容
 
 ### 更新项目
 
 修改 `assets/project/` 下相应的 Markdown，运行 `node tools/build-projects.mjs`，并提交 Markdown、生成的 `projects.js` 与当前 JPG 配图。首页卡片文案及主图在 `index.html` 单独维护。图片总数包含并排对比的每张原图，每个项目不超过 5 张。资料依据与数值说明见 `assets/project/README.md`（该文件不随网站发布）。
+
+### 新增博客文章
+
+在 `blog/posts/` 新建一个 Markdown 文件（**文件名即 URL slug**，建议小写英文加短横线），开头写 frontmatter（`title` / `date` / `category` / `tags` / `description` / `cover` / `draft`），图片放进 `blog/assets/`，然后执行 `node tools/build-blog.mjs` 并提交。脚本会自动生成文章页、刷新列表卡片与首页「最新文章」，**不需要手动维护任何索引**；分类只在 `tools/build-blog.mjs` 的 `CATEGORIES` 里定义一处。`draft: true` 的文章不会进入网站，本地预览用 `node tools/build-blog.mjs --drafts`。完整说明见 `blog/README.md`。
 
 ### 更新动态
 
@@ -148,7 +168,7 @@ git push origin main
 - **响应式**：主要断点 `1080px` / `850px` / `820px` / `700px` / `560px` / `480px`；卡片网格按 4 / 2 / 1 列自适应，窄屏下项目详情和双地图改为上下排列、照片网格降为 2 列再到 1 列。全局 `img { max-width: 100%; height: auto; }` 兜底。
 - **可访问性**：导航、地图、相册容器均带 `aria-label`；筛选与标记使用 `aria-pressed` 表达选中态；预览卡通过 `aria-describedby` 关联触发元素；装饰性 SVG 与图标标 `aria-hidden`。
 - **性能**：项目卡片、时间线与相册图片使用 `loading="lazy"` + `decoding="async"`，详情图示在打开项目后加载。
-- **不随网站发布的文件**：由 `_config.yml` 的 `exclude` 列表决定，新增维护文档时在这里登记。Jekyll 的 `exclude` 会整体覆盖内置默认值，因此该文件里同时列出了 `Gemfile`、`node_modules` 等默认项。
+- **不随网站发布的文件**：由 `_config.yml` 的 `exclude` 列表决定，新增维护文档时在这里登记。Jekyll 的 `exclude` 会整体覆盖内置默认值，因此该文件里同时列出了 `Gemfile`、`node_modules` 等默认项。博客的 Markdown 源文件（`blog/posts/`）也在其中，否则 Jekyll 会把带 frontmatter 的 `.md` 再渲染成一份没有样式的副本。
 - **未被引用的素材**：`assets/videos/**` 目前未接入页面；`billiards/`、`csgo/` 下的 MP4 会随仓库提交，`pubg/` 下的视频被 `.gitignore` 排除，仅本地保留。
 - **已删除的旧版本**：项目目录下原始的 PNG、旧 WebP 展示版本，以及未被引用的 `assets/china-outline.svg`，共 17 个文件已删除（约 12.4 MB）；旧 `sea-ice/study-area.jpg` 仍留在本地并由 `.gitignore` 排除。
-- **样式为单文件**：`styles.css` 未做拆分，修改时按文件内的注释分区（如 `/* ===== 旅行足迹：经纬度地图 ===== */`）定位。
+- **样式分两处**：站点样式在 `styles.css`（按注释分区定位，如 `/* ===== 旅行足迹：经纬度地图 ===== */`），博客样式在 `blog/blog.css` 并复用前者的 `:root` 变量，因此两个文件要一起加载。**改配色请改 `styles.css` 的 `:root`。**

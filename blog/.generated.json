@@ -1,0 +1,6 @@
+{
+  "note": "由 tools/build-blog.mjs 维护：记录已生成的文章页面，用于在下次构建时清理失效页面。",
+  "files": [
+    "nanhai-starlight.html"
+  ]
+}

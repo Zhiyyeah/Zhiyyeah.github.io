@@ -1,8 +1,12 @@
 const yearNode = document.querySelector("[data-year]");
 const header = document.querySelector("[data-header]");
 const navLinks = [...document.querySelectorAll(".site-nav a")];
+// 导航里既有页内锚点（#about）也有独立页面（blog/），只把锚点交给 querySelector，
+// 否则非选择器字符串会让这里直接抛异常。
 const sections = navLinks
-  .map((link) => document.querySelector(link.getAttribute("href")))
+  .map((link) => link.getAttribute("href"))
+  .filter((href) => href && href.startsWith("#"))
+  .map((href) => document.querySelector(href))
   .filter(Boolean);
 
 if (yearNode) {
