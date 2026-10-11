@@ -79,6 +79,82 @@ document.addEventListener("DOMContentLoaded", function() {
   const sortedPhotos = [...travelPhotos].sort((a, b) =>
     b.date.localeCompare(a.date) || b.index - a.index
   );
+  const travelPreview = document.createElement("div");
+  travelPreview.className = "travel-preview";
+  travelPreview.id = "travel-marker-preview";
+  travelPreview.setAttribute("role", "tooltip");
+  travelPreview.hidden = true;
+  const previewImage = document.createElement("img");
+  previewImage.alt = "";
+  previewImage.decoding = "async";
+  const previewDetails = document.createElement("div");
+  previewDetails.className = "travel-preview__details";
+  const previewTitle = document.createElement("strong");
+  const previewLocation = document.createElement("span");
+  const previewTime = document.createElement("time");
+  const previewCount = document.createElement("small");
+  previewDetails.append(previewTitle, previewLocation, previewTime, previewCount);
+  travelPreview.append(previewImage, previewDetails);
+  document.body.append(travelPreview);
+  let activePreviewTrigger = null;
+
+  function positionTravelPreview() {
+    if (!activePreviewTrigger || travelPreview.hidden) return;
+    const trigger = activePreviewTrigger.getBoundingClientRect();
+    const preview = travelPreview.getBoundingClientRect();
+    const margin = 12;
+    const left = Math.max(margin, Math.min(
+      trigger.left + trigger.width / 2 - preview.width / 2,
+      window.innerWidth - preview.width - margin
+    ));
+    let top = trigger.top - preview.height - margin;
+    if (top < margin) top = trigger.bottom + margin;
+    top = Math.max(margin, Math.min(top, window.innerHeight - preview.height - margin));
+    travelPreview.style.left = `${left}px`;
+    travelPreview.style.top = `${top}px`;
+  }
+
+  function hideTravelPreview() {
+    if (activePreviewTrigger) activePreviewTrigger.removeAttribute("aria-describedby");
+    activePreviewTrigger = null;
+    travelPreview.hidden = true;
+  }
+
+  function showTravelPreview(trigger, photos) {
+    if (activePreviewTrigger && activePreviewTrigger !== trigger) {
+      activePreviewTrigger.removeAttribute("aria-describedby");
+    }
+    const photo = photos.reduce((latest, current) =>
+      current.date > latest.date ? current : latest
+    );
+    previewImage.src = photo.photo;
+    previewTitle.textContent = photo.title;
+    previewLocation.textContent = photo.location;
+    previewTime.dateTime = photo.date.slice(0, 10);
+    previewTime.textContent = photo.date.slice(0, 10);
+    previewCount.textContent = photos.length > 1 ? `该地点共 ${photos.length} 张照片` : "";
+    activePreviewTrigger = trigger;
+    trigger.setAttribute("aria-describedby", travelPreview.id);
+    travelPreview.hidden = false;
+    positionTravelPreview();
+  }
+
+  function attachTravelPreview(trigger, photos) {
+    trigger.addEventListener("mouseenter", () => showTravelPreview(trigger, photos));
+    trigger.addEventListener("focus", () => showTravelPreview(trigger, photos));
+    trigger.addEventListener("mouseleave", () => {
+      if (activePreviewTrigger === trigger && document.activeElement !== trigger) {
+        hideTravelPreview();
+      }
+    });
+    trigger.addEventListener("blur", () => {
+      if (activePreviewTrigger === trigger && !trigger.matches(":hover")) {
+        hideTravelPreview();
+      }
+    });
+  }
+
+  window.addEventListener("scroll", positionTravelPreview, true);
   function renderTravelPhotos(filter) {
     const visible = sortedPhotos.filter((photo) => {
       if (filter === "all") return true;
@@ -177,11 +253,12 @@ document.addEventListener("DOMContentLoaded", function() {
       marker.dataset.travelPlace = placeId;
       marker.setAttribute("aria-label", `${placeNames[placeId]}，查看 ${photos.length} 张照片`);
       marker.setAttribute("aria-pressed", "false");
-      marker.title = placeNames[placeId];
       marker.style.left = `${(position.lng - bounds.minLng) / (bounds.maxLng - bounds.minLng) * 100}%`;
       marker.style.top = `${(mercatorY(bounds.maxLat) - mercatorY(position.lat)) / (mercatorY(bounds.maxLat) - mercatorY(bounds.minLat)) * 100}%`;
       marker.textContent = placeNames[placeId].slice(0, 1);
+      attachTravelPreview(marker, photos);
       marker.addEventListener("click", () => {
+        hideTravelPreview();
         renderTravelPhotos(placeId);
         travelAlbum.open = true;
         travelAlbum.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -238,7 +315,10 @@ document.addEventListener("DOMContentLoaded", function() {
   let travelLayoutFrame = 0;
   window.addEventListener("resize", () => {
     cancelAnimationFrame(travelLayoutFrame);
-    travelLayoutFrame = requestAnimationFrame(() => travelMapStages.forEach(layoutTravelMarkers));
+    travelLayoutFrame = requestAnimationFrame(() => {
+      travelMapStages.forEach(layoutTravelMarkers);
+      positionTravelPreview();
+    });
   });
 
   placeGroups.forEach((photos, placeId) => {
@@ -248,7 +328,9 @@ document.addEventListener("DOMContentLoaded", function() {
     button.dataset.travelPlace = placeId;
     button.setAttribute("aria-pressed", "false");
     button.textContent = `${placeNames[placeId]} ${photos.length}`;
+    attachTravelPreview(button, photos);
     button.addEventListener("click", () => {
+      hideTravelPreview();
       renderTravelPhotos(placeId);
       travelAlbum.open = true;
       travelAlbum.scrollIntoView({ behavior: "smooth", block: "start" });

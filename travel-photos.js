@@ -517,7 +517,7 @@ window.travelPhotos = [
     "index": 33,
     "title": "漳州土楼",
     "place": "tulou",
-    "location": "福建 · 漳州土楼（具体土楼待确认）",
+    "location": "福建 · 漳州土楼",
     "date": "2026-01-24 16:01",
     "albumDate": null,
     "timezone": "UTC+08:00",
