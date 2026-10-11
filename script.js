@@ -44,8 +44,10 @@ function toggleTimeline() {
     
     if (hiddenTimeline.classList.contains("is-open")) {
       expandBtn.textContent = "收起动态";
+      expandBtn.setAttribute("aria-expanded", "true");
     } else {
       expandBtn.textContent = "展开动态";
+      expandBtn.setAttribute("aria-expanded", "false");
     }
   }
 }
@@ -181,6 +183,7 @@ document.addEventListener("DOMContentLoaded", function() {
       marker.textContent = placeNames[placeId].slice(0, 1);
       marker.addEventListener("click", () => {
         renderTravelPhotos(placeId);
+        travelAlbum.open = true;
         travelAlbum.scrollIntoView({ behavior: "smooth", block: "start" });
       });
       markers.append(marker);
@@ -245,7 +248,11 @@ document.addEventListener("DOMContentLoaded", function() {
     button.dataset.travelPlace = placeId;
     button.setAttribute("aria-pressed", "false");
     button.textContent = `${placeNames[placeId]} ${photos.length}`;
-    button.addEventListener("click", () => renderTravelPhotos(placeId));
+    button.addEventListener("click", () => {
+      renderTravelPhotos(placeId);
+      travelAlbum.open = true;
+      travelAlbum.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
     travelPlacesNode.append(button);
   });
   renderTravelPhotos("all");
