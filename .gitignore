@@ -5,3 +5,7 @@ assets/videos/pubg/**/*.mov
 assets/videos/pubg/**/*.m4v
 assets/videos/pubg/**/*.avi
 assets/travel/originals/
+# 项目展示使用 JPG；原始 PNG 与旧展示版本仅保留在本地。
+assets/project/**/*.png
+assets/project/**/*.webp
+assets/project/sea-ice/study-area.jpg

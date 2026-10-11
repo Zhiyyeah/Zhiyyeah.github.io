@@ -349,18 +349,15 @@ document.addEventListener("DOMContentLoaded", function() {
   photos.forEach(function(img) {
     img.addEventListener("click", function(e) {
       e.stopPropagation();
-      if (this.classList.contains("zoomed")) {
-        this.classList.remove("zoomed");
-      } else {
-        this.classList.add("zoomed");
-      }
+      const shouldZoom = !this.classList.contains("zoomed");
+      photos.forEach((photo) => photo.classList.remove("zoomed"));
+      this.classList.toggle("zoomed", shouldZoom);
     });
   });
   
   document.addEventListener("click", function(e) {
-    const zoomedImg = document.querySelector(".update-media img.zoomed");
-    if (zoomedImg && !e.target.classList.contains("zoomed")) {
-      zoomedImg.classList.remove("zoomed");
+    if (!e.target.closest(".update-media img.zoomed")) {
+      photos.forEach((photo) => photo.classList.remove("zoomed"));
     }
   });
 });

@@ -1,0 +1,14 @@
+# GitHub Pages 用 Jekyll 构建本仓库（仓库内没有 .nojekyll 文件）。
+# exclude 中列出的路径不会被发布到网站，但文件仍保留在仓库里，本地可以正常打开阅读。
+# 注意：Jekyll 的 exclude 会整体覆盖内置默认值，所以下面把默认项一并列出。
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  # 维护文档：仅供本地与仓库内阅读，不随网站发布
+  - assets/project/README.md
+  - assets/travel/README.md

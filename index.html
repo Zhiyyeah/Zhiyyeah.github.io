@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="一个可逐步填充真实信息的个人主页模板。"
+      content="叶志远的个人主页：厦门大学硕士研究生，展示水色遥感研究、项目经历、近期动态与旅行足迹。"
     />
     <title>叶志远 | 个人主页</title>
     <link rel="stylesheet" href="styles.css" />
@@ -60,14 +60,14 @@
               掌握Python、PyTorch、Matlab、ENVI、ArcGIS、Google Earth Engine等软件和技能
             </p>
             <p>
-              对AI有浓厚兴趣，熟练运用ChatGPT、CodeX、Claude Code、Cursor等工具辅助研究
+              对AI有浓厚兴趣，熟练运用ChatGPT、Codex、Claude Code、Cursor等工具辅助研究
             </p>
             <p>
               热爱台球(多次打出一杆清台)；喜欢玩PUBG(最高14k)、CSGO(残局1V5)
             </p>
 
           </div>
-          <ul class="fact-list" aria-label="个人信息占位">
+          <ul class="fact-list" aria-label="个人信息">
             <li><span>所在地</span><strong>厦门</strong></li>
             <li><span>身份</span><strong>硕士研究生</strong></li>
             <li><span>方向</span><strong>水色遥感</strong></li>
@@ -276,28 +276,50 @@
           <p class="eyebrow">Projects & Work</p>
           <h2 id="work-title">项目与经历</h2>
         </div>
+        <p class="project-section-lead">从遥感数据处理到模型设计与应用验证，点击项目查看完整介绍。</p>
         <div class="card-grid">
-          <article class="project-card">
+          <a class="project-card" href="#project-super-resolution" data-project="super-resolution" aria-haspopup="dialog">
+            <div class="project-card__visual">
+              <img src="assets/project/super-resolution/workflow.jpg" alt="水色遥感影像真实退化建模与超分辨率流程" loading="lazy" decoding="async" width="1723" height="921" />
+              <span class="project-card__number" aria-hidden="true">01</span>
+            </div>
+            <div class="project-card__body">
             <p class="project-card__meta">2025.03-至今</p>
             <h3>遥感影像超分辨率算法研究</h3>
-            <p>
-              对GOCI-2水体遥感影像构建高质量超分辨数据集，设计专用卷积神经网络架构，融合双态边缘特征提取与坐标注意力机制，模型PSNR较传统基线提升1.8%。
+            <p class="project-card__summary">
+              构建真实退化数据与 W-MREA 水体重建模型，开展 8 倍超分辨率及浒苔、叶绿素与海流应用验证。
             </p>
-          </article>
-          <article class="project-card">
+            <div class="project-card__footer"><span>水色遥感 · 深度学习</span><span class="project-card__action">查看详情 <span aria-hidden="true">↗</span></span></div>
+            </div>
+          </a>
+          <a class="project-card" href="#project-vegetation" data-project="vegetation" aria-haspopup="dialog">
+            <div class="project-card__visual">
+              <img src="assets/project/vegetation/研究区域第二版_line300.jpg" alt="艾比湖流域研究区域及地理位置" loading="lazy" decoding="async" width="3389" height="1778" />
+              <span class="project-card__number" aria-hidden="true">02</span>
+            </div>
+            <div class="project-card__body">
             <p class="project-card__meta">2024.01-2024.05</p>
             <h3>艾比湖流域植被覆盖度时空分布研究</h3>
-            <p>
-              基于GEE平台处理1712景Landsat-8影像，提取2013-2023年月度植被覆盖度数据，构建随机森林模型进行地物分类，精度达96%。
+            <p class="project-card__summary">
+              处理 1,712 景 Landsat-8 影像，重建长期植被覆盖度序列，结合物候特征与随机森林识别耕地。
             </p>
-          </article>
-          <article class="project-card">
+            <div class="project-card__footer"><span>时序分析 · 地物分类</span><span class="project-card__action">查看详情 <span aria-hidden="true">↗</span></span></div>
+            </div>
+          </a>
+          <a class="project-card" href="#project-sea-ice" data-project="sea-ice" aria-haspopup="dialog">
+            <div class="project-card__visual">
+              <img src="assets/project/sea-ice/ice-distribution.jpg" alt="2022 年 1 月多源遥感提取的辽东湾海冰分布与面积" loading="lazy" decoding="async" width="1002" height="709" />
+              <span class="project-card__number" aria-hidden="true">03</span>
+            </div>
+            <div class="project-card__body">
             <p class="project-card__meta">国家级大创项目</p>
-            <h3>基于GEE的辽东湾海冰面积监测</h3>
-            <p>
-              使用GEE云平台批量调用Sentinel-2数据，引入OTSU阈值分割算法，实现2015-2022年海冰高效识别，发表软件著作权《辽东湾海冰监测系统》。
+            <h3>辽东湾海冰监测与预警研究</h3>
+            <p class="project-card__summary">
+              负责海冰提取算法与代码实现，结合多源遥感开展冰情分析，《辽东湾海冰监测系统》软著已授权。
             </p>
-          </article>
+            <div class="project-card__footer"><span>海冰监测 · 软件开发</span><span class="project-card__action">查看详情 <span aria-hidden="true">↗</span></span></div>
+            </div>
+          </a>
         </div>
       </section>
 
@@ -374,10 +396,21 @@
       </section>
     </main>
 
+    <dialog class="project-dialog" id="project-dialog" aria-labelledby="project-detail-title">
+      <div class="project-detail">
+        <button class="project-detail__close" type="button" aria-label="关闭项目详情" autofocus>
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18" /></svg>
+        </button>
+        <div id="project-detail-content"></div>
+      </div>
+    </dialog>
+
     <footer class="site-footer">
       <p>&copy; <span data-year></span> 叶志远. All rights reserved.</p>
     </footer>
 
+    <script src="assets/project/projects.js"></script>
+    <script src="project-details.js"></script>
     <script src="travel-photos.js"></script>
     <script src="script.js"></script>
   </body>
