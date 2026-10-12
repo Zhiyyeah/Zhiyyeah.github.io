@@ -19,7 +19,7 @@
         <a href="#notes">动态</a>
         <a href="#work">项目</a>
         <a href="blog/index.html">博客</a>
-        <a href="#travel">旅行足迹</a>
+        <a href="#travel">足迹</a>
         <a href="#contact">联系</a>
       </nav>
     </header>
@@ -35,16 +35,24 @@
           />
         </div>
         <div class="hero__content">
-          <p class="eyebrow">Personal Homepage</p>
           <h1>叶志远</h1>
-          <p class="hero__lead">
-            厦门大学硕士研究生，研究方向为遥感影像超分辨率
-          </p>
-          <div class="hero__actions" aria-label="主页快捷操作">
-            <a class="button button--secondary" href="#work">查看项目</a>
+          <p class="hero__lead">研究水色遥感与图像超分辨率，也记录生活。</p>
+          <div class="hero__actions" aria-label="主页快捷导航">
             <a class="button button--secondary" href="#notes">最近动态</a>
-            <a class="button button--secondary" href="#contact">联系方式</a>
+            <a class="button button--secondary" href="#work">科研项目</a>
+            <a class="button button--secondary" href="#contact">联系我</a>
           </div>
+          <nav class="hero__tags" aria-label="个人标签">
+            <p class="hero__tag-hint">你可以通过这些标签快速了解我 <span aria-hidden="true">↘</span></p>
+            <div class="tag-list">
+              <a class="interest-tag" href="#cycling-note">骑行</a>
+              <a class="interest-tag" href="#project-super-resolution">超分辨率</a>
+              <a class="interest-tag" href="#expedition-note">出海科考</a>
+              <a class="interest-tag" href="#travel">旅行</a>
+              <a class="interest-tag" href="#work">技术</a>
+              <a class="interest-tag" href="#swimming-note">游泳</a>
+            </div>
+          </nav>
         </div>
       </section>
 
@@ -55,25 +63,38 @@
         </div>
         <div class="about-layout">
           <div class="about-text">
-            <p>
-              研究方向为水色遥感影像超分辨率，目前在厦门大学攻读硕士学位
-            </p>
-            <p>
-              掌握Python、PyTorch、Matlab、ENVI、ArcGIS、Google Earth Engine等软件和技能
-            </p>
-            <p>
-              对AI有浓厚兴趣，熟练运用ChatGPT、Codex、Claude Code、Cursor等工具辅助研究
-            </p>
-            <p>
-              热爱台球(多次打出一杆清台)；喜欢玩PUBG(最高14k)、CSGO(残局1V5)
-            </p>
-
+            <p>Hi，我是叶志远，目前在厦门大学读硕士，主要研究水色遥感和图像超分辨率。</p>
+            <p>平时会关注技术，喜欢骑行、游泳、台球和旅行，曾经参加过南海科考。</p>
+            <p>这个网站用来记录我的研究、生活，以及一些偶尔冒出来的想法。</p>
           </div>
-          <ul class="fact-list" aria-label="个人信息">
-            <li><span>所在地</span><strong>厦门</strong></li>
-            <li><span>身份</span><strong>硕士研究生</strong></li>
-            <li><span>方向</span><strong>水色遥感</strong></li>
-          </ul>
+          <div class="about-photos" aria-label="待补充的三张生活照片">
+            <div class="about-photo-placeholder">
+              <span class="about-photo-placeholder__number">01</span>
+              <span>海上科考</span>
+              <small>建议：甲板或作业现场的日常照</small>
+            </div>
+            <div class="about-photo-placeholder">
+              <span class="about-photo-placeholder__number">02</span>
+              <span>骑行或旅行</span>
+              <small>建议：路上自然抓拍的人物照</small>
+            </div>
+            <div class="about-photo-placeholder">
+              <span class="about-photo-placeholder__number">03</span>
+              <span>休闲时刻</span>
+              <small>建议：打台球或游泳的生活照</small>
+            </div>
+          </div>
+          <div class="about-interests">
+            <h3>感兴趣的事</h3>
+            <div class="tag-list" aria-label="个人兴趣">
+              <span class="interest-tag interest-tag--static">水色遥感</span>
+              <span class="interest-tag interest-tag--static">技术</span>
+              <span class="interest-tag interest-tag--static">骑行</span>
+              <span class="interest-tag interest-tag--static">旅行</span>
+              <span class="interest-tag interest-tag--static">游泳</span>
+              <span class="interest-tag interest-tag--static">台球</span>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -83,7 +104,7 @@
           <h2 id="notes-title">近期动态</h2>
         </div>
         <div class="updates-timeline" aria-label="近期动态时间线">
-          <article class="timeline-item">
+          <article class="timeline-item" id="expedition-note">
             <div class="timeline-date">
               <span class="year">2026</span>
               <span class="month-day">8-9月</span>
@@ -101,7 +122,7 @@
             </div>
           </article>
 
-          <article class="timeline-item">
+          <article class="timeline-item" id="swimming-note">
             <div class="timeline-date">
               <span class="year">2026</span>
               <span class="month-day">7月</span>
@@ -177,7 +198,7 @@
                 </div>
               </div>
             </article>
-            <article class="timeline-item">
+            <article class="timeline-item" id="cycling-note">
               <div class="timeline-date">
                 <span class="year">2025</span>
                 <span class="month-day">12/12</span>

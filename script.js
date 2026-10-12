@@ -56,6 +56,18 @@ function toggleTimeline() {
   }
 }
 
+function revealTimelineHash() {
+  const target = document.getElementById(window.location.hash.slice(1));
+  const hiddenTimeline = document.getElementById("hidden-timeline");
+  if (!target || !hiddenTimeline?.contains(target)) return;
+
+  if (!hiddenTimeline.classList.contains("is-open")) toggleTimeline();
+  requestAnimationFrame(() => target.scrollIntoView({ block: "start" }));
+}
+
+window.addEventListener("hashchange", revealTimelineHash);
+revealTimelineHash();
+
 document.addEventListener("DOMContentLoaded", function() {
   const travelPhotos = window.travelPhotos || [];
   const travelAlbum = document.getElementById("travel-album");
