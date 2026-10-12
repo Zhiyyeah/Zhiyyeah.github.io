@@ -346,48 +346,6 @@ a.interest-tag:focus-visible {
   line-height: 1.85;
 }
 
-.about-photos {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 16px;
-}
-
-.about-photo-placeholder {
-  display: flex;
-  flex-direction: column;
-  justify-content: end;
-  aspect-ratio: 4 / 3;
-  min-width: 0;
-  padding: 20px;
-  border: 1px dashed #bdd4cf;
-  border-radius: 12px;
-  background: linear-gradient(145deg, #f5faf8, #eaf4f1);
-  color: var(--teal-dark);
-  font-size: 18px;
-  font-weight: 700;
-}
-
-.about-photo-placeholder__number {
-  margin-bottom: auto;
-  color: var(--teal);
-  font-size: 13px;
-  letter-spacing: 0.08em;
-}
-
-.about-photo-placeholder small {
-  margin-top: 5px;
-  color: var(--muted);
-  font-size: 13px;
-  font-weight: 400;
-  line-height: 1.5;
-}
-
-.about-interests h3 {
-  margin: 0 0 14px;
-  font-size: 16px;
-  font-weight: 700;
-}
-
 .card-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -844,16 +802,6 @@ a.interest-tag:focus-visible {
 
   .update-media--contain {
     width: max-content;
-  }
-}
-
-@media (max-width: 600px) {
-  .about-photos {
-    grid-template-columns: 1fr;
-  }
-
-  .about-photo-placeholder {
-    aspect-ratio: 16 / 7;
   }
 }
 
