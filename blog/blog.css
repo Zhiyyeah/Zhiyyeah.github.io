@@ -196,7 +196,6 @@
 }
 
 .blog-search input:focus-visible,
-.post-card a:focus-visible,
 .post__content a:focus-visible {
   outline: 3px solid var(--coral);
   outline-offset: 2px;
@@ -221,6 +220,7 @@
 }
 
 .post-card {
+  position: relative;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -788,6 +788,7 @@ a.post__nav-link:hover {
 }
 
 .latest-item {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -812,6 +813,26 @@ a.post__nav-link:hover {
 
 .latest-item__title:hover {
   color: var(--teal-dark);
+}
+
+/* 将标题链接的点击区域延伸到整张卡片，保留浏览器原生链接行为。 */
+.post-card__title a::after,
+.latest-item__title::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+}
+
+.post-card:has(a:focus-visible),
+.latest-item:has(a:focus-visible) {
+  outline: 3px solid var(--coral);
+  outline-offset: 3px;
+}
+
+.post-card__title a:focus-visible,
+.latest-item__title:focus-visible {
+  outline: none;
 }
 
 .latest-item__meta {
