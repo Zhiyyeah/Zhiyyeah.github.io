@@ -29,7 +29,7 @@
 │   ├── build-projects.mjs  # 从项目 Markdown 同步网页详情数据
 │   └── build-blog.mjs      # 从博客 Markdown 生成文章页、列表卡片与首页最新文章
 ├── blog/
-│   ├── README.md           # 博客维护说明（新增文章、图片、分类、发布）
+│   ├── README.md           # 博客维护说明（新增文章、图片、发布）
 │   ├── posts/              # 文章源文件（Markdown + frontmatter）
 │   ├── assets/             # 文章配图与封面
 │   ├── blog.css / blog.js  # 博客样式与交互
@@ -64,7 +64,7 @@
 | 近期动态 | `#notes` | 倒序时间线，默认展示 3 条，其余折叠 |
 | 项目与经历 | `#work` | 4 张卡片（三个科研项目 + 一段企业实习），点击展示统一的详情弹窗，每项最多 5 张配图 |
 | 最新文章 | `#blog` | 首页的博客入口，展示最近三篇文章（由构建脚本注入） |
-| 博客 | `blog/` | 独立博客页：分类筛选、搜索、排序、空状态，每篇文章有独立静态页 |
+| 博客 | `blog/` | 独立博客页：搜索、排序、空状态，每篇文章有独立静态页 |
 | 旅行足迹 | `#travel` | 国内 / 海外双地图 + 地点标签 + 可筛选相册 |
 | 联系我 | `#contact` | 邮箱入口 `zhiyyeah@gmail.com` |
 
@@ -94,7 +94,7 @@
 
 **博客**（`blog/blog.js` + `blog/blog.css`）
 - 文章由 `node tools/build-blog.mjs` 渲染成独立静态页；列表卡片注入 `blog/index.html`，最新三篇注入首页 `#blog` 板块。
-- 列表页支持分类筛选（也支持 `?category=key` 直达）、标题/摘要/标签搜索、三种排序和空状态提示，全部在前端完成。
+- 列表页支持标题/摘要搜索、三种排序和空状态提示，全部在前端完成。
 - 文章页含自动目录（滚动高亮当前小节）、代码高亮与一键复制、图片点击放大、上一篇/下一篇与返回列表入口。
 - 即使浏览器禁用 JavaScript，静态生成的卡片列表与文章正文依然可读。
 
@@ -106,7 +106,7 @@
 
 ### 新增博客文章
 
-在 `blog/posts/` 新建一个 Markdown 文件（**文件名即 URL slug**，建议小写英文加短横线），开头写 frontmatter（`title` / `date` / `category` / `tags` / `description` / `cover` / `draft`），图片放进 `blog/assets/`，然后执行 `node tools/build-blog.mjs` 并提交。脚本会自动生成文章页、刷新列表卡片与首页「最新文章」，**不需要手动维护任何索引**；分类只在 `tools/build-blog.mjs` 的 `CATEGORIES` 里定义一处。`draft: true` 的文章不会进入网站，本地预览用 `node tools/build-blog.mjs --drafts`。完整说明见 `blog/README.md`。
+在 `blog/posts/` 新建一个 Markdown 文件（**文件名即 URL slug**，建议小写英文加短横线），开头写 frontmatter（`title` / `date` / `description` / `cover` / `draft`），图片放进 `blog/assets/`，然后执行 `node tools/build-blog.mjs` 并提交。脚本会自动生成文章页、刷新列表卡片与首页「最新文章」，**不需要手动维护任何索引**。`draft: true` 的文章不会进入网站，本地预览用 `node tools/build-blog.mjs --drafts`。完整说明见 `blog/README.md`。
 
 ### 更新动态
 

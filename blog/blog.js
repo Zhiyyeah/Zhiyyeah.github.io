@@ -100,12 +100,11 @@
     }
   });
 
-  /* ── 列表页：分类筛选 + 搜索 + 排序 ─────────────────────────────── */
+  /* ── 列表页：搜索 + 排序 ────────────────────────────────────────── */
   const list = document.getElementById('blog-list');
   if (!list) return;
 
   const cards = [...list.querySelectorAll('.post-card')];
-  const filters = [...document.querySelectorAll('.blog-filter')];
   const searchInput = document.getElementById('blog-search');
   const sortRoot = document.querySelector('[data-sort]');
   const sortButton = sortRoot ? sortRoot.querySelector('.blog-sort__button') : null;
@@ -115,25 +114,14 @@
   const hint = document.getElementById('blog-hint');
   const empty = document.getElementById('blog-empty');
   const resetButton = document.getElementById('blog-reset');
-  const state = { category: 'all', query: '', sort: 'new' };
-
-  const readParams = () => {
-    const params = new URLSearchParams(window.location.search);
-    const category = params.get('category');
-    const tag = params.get('tag');
-    if (category && filters.some((filter) => filter.dataset.filter === category)) {
-      state.category = category;
-    }
-    if (tag) state.query = tag;
-  };
+  const state = { query: '', sort: 'new' };
 
   const render = () => {
     const query = state.query.trim().toLowerCase();
     let visible = 0;
     cards.forEach((card) => {
-      const matchesCategory = state.category === 'all' || card.dataset.category === state.category;
       const matchesQuery = !query || (card.dataset.search || '').includes(query);
-      const show = matchesCategory && matchesQuery;
+      const show = matchesQuery;
       card.hidden = !show;
       if (show) visible += 1;
     });
@@ -147,29 +135,16 @@
     });
     sorted.forEach((card) => list.append(card));
 
-    const active = filters.find((filter) => filter.dataset.filter === state.category);
-    const description = active?.dataset.description || '';
     const count =
-      state.category === 'all' && !query
+      !query
         ? `共 ${cards.length} 篇文章`
         : `共 ${cards.length} 篇，当前显示 ${visible} 篇`;
-    if (hint) hint.textContent = description ? `${description} ${count}` : count;
+    if (hint) hint.textContent = count;
 
     if (empty) empty.hidden = visible > 0;
     list.hidden = visible === 0;
-    filters.forEach((filter) => {
-      const on = filter.dataset.filter === state.category;
-      filter.classList.toggle('is-active', on);
-      filter.setAttribute('aria-pressed', String(on));
-    });
   };
 
-  filters.forEach((filter) => {
-    filter.addEventListener('click', () => {
-      state.category = filter.dataset.filter || 'all';
-      render();
-    });
-  });
   searchInput?.addEventListener('input', () => {
     state.query = searchInput.value;
     render();
@@ -247,7 +222,6 @@
     syncSortLabel(state.sort);
   }
   resetButton?.addEventListener('click', () => {
-    state.category = 'all';
     state.query = '';
     state.sort = 'new';
     if (searchInput) searchInput.value = '';
@@ -261,7 +235,5 @@
     render();
   });
 
-  readParams();
-  if (searchInput && state.query) searchInput.value = state.query;
   render();
 })();

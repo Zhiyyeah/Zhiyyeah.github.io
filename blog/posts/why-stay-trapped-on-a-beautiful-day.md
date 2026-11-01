@@ -1,8 +1,6 @@
 ---
 title: "这么好的天，为什么要被困住？"
 date: 2026-11-01
-category: "生活随笔"
-tags: ["厦门", "周末", "秋招", "生活感悟"]
 description: "厦门终于等来了适合出门的好天气，我却差点被求职的焦虑困住。生活，或许不必总等到下一道坎之后才开始。"
 cover: "assets/xiamen-spring.jpg"
 draft: false

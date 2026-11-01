@@ -2,8 +2,6 @@
 title: "那束光，走了很久才与我相遇"
 subtitle: "——记南海航次中的一个夜晚"
 date: 2026-10-12
-category: "生活随笔"
-tags: ["南海航次", "银河", "随笔"]
 description: "在南海科考航次的某个夜晚，我第一次真正感受到宇宙的浩瀚与时间的漫长。"
 cover: "assets/nanhai-night-sky.jpg"
 draft: false

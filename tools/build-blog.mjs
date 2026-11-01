@@ -14,6 +14,7 @@
 import { readFileSync, writeFileSync, readdirSync, existsSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { createHash } from 'node:crypto';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const BLOG_DIR = resolve(root, 'blog');
@@ -21,18 +22,9 @@ const POSTS_DIR = resolve(BLOG_DIR, 'posts');
 const SITE_URL = 'https://zhiyyeah.github.io';
 const SITE_NAME = '叶志远';
 const INCLUDE_DRAFTS = process.argv.includes('--drafts');
-
-// ── 分类配置：改这里就能调整分类名称、描述与排序 ──────────────────────────────
-// key 用于 URL 与 CSS hook；name 是 frontmatter 里 category 的取值；order 决定筛选按钮顺序。
-const CATEGORIES = [
-  { key: 'research', name: '科研笔记', en: 'Research', description: '遥感、深度学习、论文阅读与科研心得。', order: 1 },
-  { key: 'tech', name: '技术分享', en: 'Tech', description: 'Python、AI、开发工具、环境配置与问题解决。', order: 2 },
-  { key: 'ideas', name: '奇思妙想', en: 'Ideas', description: '突发灵感、个人思考与尚未成熟的想法。', order: 3 },
-  { key: 'life', name: '生活随笔', en: 'Life', description: '旅行、科考航次、日常见闻与生活感悟。', order: 4 },
-];
-const DEFAULT_CATEGORY = CATEGORIES[0];
-const byCategoryName = new Map(CATEGORIES.map((c) => [c.name, c]));
-const byCategoryKey = new Map(CATEGORIES.map((c) => [c.key, c]));
+const assetVersion = (name) => createHash('sha256').update(readFileSync(resolve(BLOG_DIR, name))).digest('hex').slice(0, 10);
+const CSS_VERSION = assetVersion('blog.css');
+const JS_VERSION = assetVersion('blog.js');
 
 const escapeHtml = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 const attr = (s) => escapeHtml(s).replace(/"/g, '&quot;');
@@ -381,17 +373,6 @@ function renderMarkdown(source) {
   return { html: out.join('\n'), toc };
 }
 
-// ── 阅读时长 ─────────────────────────────────────────────────────────────────
-function readingTime(text) {
-  const stripped = text
-    .replace(/```[\s\S]*?```/g, ' ')
-    .replace(/!\[[^\]]*\]\([^)]*\)/g, ' ')
-    .replace(/[#>*`_|-]/g, ' ');
-  const cjk = (stripped.match(/[\u4e00-\u9fff]/g) || []).length;
-  const words = (stripped.replace(/[\u4e00-\u9fff]/g, ' ').match(/[A-Za-z0-9]+/g) || []).length;
-  return Math.max(1, Math.round(cjk / 380 + words / 200));
-}
-
 const formatDate = (iso) => iso.replace(/-/g, '.');
 const isoDate = (d) => (/^\d{4}-\d{2}-\d{2}/.test(d) ? d.slice(0, 10) : d);
 
@@ -405,23 +386,18 @@ function loadPosts() {
     const slug = (meta.slug || file.replace(/\.md$/, '')).trim();
     if (!meta.title) throw new Error(`${file}: frontmatter 缺少 title`);
     if (!meta.date) throw new Error(`${file}: frontmatter 缺少 date`);
-    const category = byCategoryName.get(meta.category) || byCategoryKey.get(meta.category) || DEFAULT_CATEGORY;
     const { html, toc } = renderMarkdown(body);
     posts.push({
       slug,
       file,
       title: String(meta.title),
       date: isoDate(String(meta.date)),
-      category,
-      tags: Array.isArray(meta.tags) ? meta.tags : meta.tags ? [meta.tags] : [],
       description: String(meta.description || ''),
-    subtitle: String(meta.subtitle || ''),
+      subtitle: String(meta.subtitle || ''),
       cover: String(meta.cover || ''),
       draft: meta.draft === true,
       html,
       toc,
-      minutes: readingTime(body),
-      words: body.replace(/\s+/g, '').length,
     });
   }
   posts.sort((a, b) => (a.date < b.date ? 1 : a.date > b.date ? -1 : a.slug.localeCompare(b.slug)));
@@ -433,29 +409,22 @@ function cardHtml(post, prefix) {
   const cover = post.cover
     ? `<a class="post-card__cover" href="${attr(prefix + post.slug + '.html')}" tabindex="-1" aria-hidden="true"><img src="${attr(prefix + post.cover)}" alt="" loading="lazy" decoding="async"></a>`
     : '';
-  const tags = post.tags
-    .map((t) => `<span class="post-card__tag">${escapeHtml(t)}</span>`)
-    .join('');
-  const haystack = [post.title, post.description, post.tags.join(' '), post.category.name]
+  const haystack = [post.title, post.description]
     .join(' ')
     .toLowerCase();
   return [
     `<article class="post-card${post.cover ? '' : ' post-card--no-cover'}"`,
     ` data-slug="${attr(post.slug)}"`,
-    ` data-category="${attr(post.category.key)}"`,
     ` data-date="${attr(post.date)}"`,
     ` data-title="${attr(post.title)}"`,
     ` data-search="${attr(haystack)}">`,
     cover,
     '<div class="post-card__body">',
     '<div class="post-card__meta">',
-    `<a class="post-card__category" href="${attr(prefix + 'index.html')}?category=${attr(post.category.key)}">${escapeHtml(post.category.name)}</a>`,
     `<time datetime="${attr(post.date)}">${formatDate(post.date)}</time>`,
-    `<span class="post-card__time">${post.minutes} 分钟</span>`,
     '</div>',
     `<h3 class="post-card__title"><a href="${attr(prefix + post.slug + '.html')}">${escapeHtml(post.title)}</a></h3>`,
     post.description ? `<p class="post-card__excerpt">${escapeHtml(post.description)}</p>` : '',
-    tags ? `<div class="post-card__tags">${tags}</div>` : '',
     '</div>',
     '</article>',
   ]
@@ -465,10 +434,9 @@ function cardHtml(post, prefix) {
 
 function latestItemHtml(post) {
   return [
-    `<li class="latest-item" data-category="${attr(post.category.key)}">`,
+    '<li class="latest-item">',
     `<a class="latest-item__title" href="blog/${attr(post.slug)}.html">${escapeHtml(post.title)}</a>`,
     '<span class="latest-item__meta">',
-    `<span class="latest-item__category">${escapeHtml(post.category.name)}</span>`,
     `<time datetime="${attr(post.date)}">${formatDate(post.date)}</time>`,
     '</span>',
     post.description ? `<p class="latest-item__excerpt">${escapeHtml(post.description)}</p>` : '',
@@ -516,9 +484,6 @@ function postPage(post, prev, next) {
   const url = `${SITE_URL}/blog/${post.slug}.html`;
   const description = post.description || `${post.title} —— ${SITE_NAME}的博客`;
   const ogImage = post.cover ? `${SITE_URL}/blog/${post.cover}` : `${SITE_URL}/assets/avatar.jpg`;
-  const tags = post.tags
-    .map((t) => `<a class="post__tag" href="index.html?tag=${encodeURIComponent(t)}">#${escapeHtml(t)}</a>`)
-    .join('');
   const hasMath = /\$\$[\s\S]*?\$\$|\$[^$\n]+\$/.test(post.html);
   return `<!doctype html>
 <html lang="zh-CN">
@@ -537,7 +502,7 @@ function postPage(post, prev, next) {
     <meta name="twitter:card" content="summary_large_image" />
     <meta property="article:published_time" content="${attr(post.date)}" />
     <link rel="stylesheet" href="../styles.css" />
-    <link rel="stylesheet" href="blog.css" />
+    <link rel="stylesheet" href="blog.css?v=${CSS_VERSION}" />
   </head>
   <body class="blog-body">
     <a class="skip-link" href="#post-content">跳到正文</a>
@@ -546,16 +511,12 @@ function postPage(post, prev, next) {
     <main class="blog-page" id="post-content">
       <article class="post">
         <header class="post__header">
-          <p class="post__eyebrow"><a href="index.html?category=${attr(post.category.key)}">${escapeHtml(post.category.name)}</a><span>·</span><span>${escapeHtml(post.category.en)}</span></p>
           <h1 class="post__title">${escapeHtml(post.title)}</h1>
           ${post.subtitle ? `<p class="post__subtitle">${escapeHtml(post.subtitle)}</p>` : ''}
           ${post.description ? `<p class="post__description">${escapeHtml(post.description)}</p>` : ''}
           <div class="post__meta">
             <time datetime="${attr(post.date)}">${formatDate(post.date)}</time>
-            <span>·</span><span>${post.minutes} 分钟读完</span>
-            <span>·</span><span>约 ${post.words} 字</span>
           </div>
-          ${tags ? `<div class="post__tags">${tags}</div>` : ''}
         </header>
 
         <div class="post__layout${post.toc.length ? ' post__layout--with-toc' : ''}">
@@ -588,7 +549,7 @@ ${post.html}
     </footer>
 
     ${hasMath ? '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">' : ''}
-    <script src="blog.js"></script>
+    <script src="blog.js?v=${JS_VERSION}"></script>
     ${hasMath ? '<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>\n    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>' : ''}
   </body>
 </html>
@@ -646,7 +607,7 @@ for (const post of posts) {
   const file = `${post.slug}.html`;
   writeFileSync(resolve(BLOG_DIR, file), postPage(post, prev, next));
   generatedPages.push(file);
-  console.log(`  ✓ blog/${file}  ${post.title}（${post.category.name} · ${post.date} · ${post.minutes} 分钟）`);
+  console.log(`  ✓ blog/${file}  ${post.title}（${post.date}）`);
 }
 
 // 文章被删除、改名或改成草稿后，上一次生成的页面要一并清掉，
@@ -686,27 +647,6 @@ inject(
   '博客列表卡片 → blog/index.html'
 );
 
-// 分类筛选按钮同样由脚本生成，保证分类只在 CATEGORIES 一处定义
-const categoryButtons = [...CATEGORIES]
-  .sort((a, b) => a.order - b.order)
-  .map((c) => {
-    const count = posts.filter((p) => p.category.key === c.key).length;
-    return [
-      `<button class="blog-filter" type="button" data-filter="${attr(c.key)}"`,
-      ` data-description="${attr(c.description)}" aria-pressed="false">`,
-      `${escapeHtml(c.name)}<span class="blog-filter__count">${count}</span></button>`,
-    ].join('');
-  })
-  .join('\n');
-
-inject(
-  resolve(BLOG_DIR, 'index.html'),
-  '<!-- BLOG:CATEGORIES:START -->',
-  '<!-- BLOG:CATEGORIES:END -->',
-  categoryButtons,
-  '分类筛选按钮 → blog/index.html'
-);
-
 // blog/index.html 只有样式表链接需要脚本保证，其余标记由人工维护
 function ensureBlogStylesheet(file, label) {
   if (!existsSync(file)) {
@@ -714,7 +654,7 @@ function ensureBlogStylesheet(file, label) {
     return;
   }
   const source = readFileSync(file, 'utf8');
-  if (source.includes('href="blog.css"')) {
+  if (source.includes('href="blog.css')) {
     console.log(`  = ${label}：已存在`);
     return;
   }
@@ -729,6 +669,15 @@ function ensureBlogStylesheet(file, label) {
 }
 ensureBlogStylesheet(resolve(BLOG_DIR, 'index.html'), '博客样式表 → blog/index.html');
 
+// 根据内容更新资源版本，避免已有访客继续使用缓存中的旧样式和脚本。
+for (const file of [resolve(BLOG_DIR, 'index.html'), resolve(root, 'index.html')]) {
+  const source = readFileSync(file, 'utf8');
+  const updated = source
+    .replace(/href="((?:blog\/)?blog\.css)(?:\?[^\"]*)?"/g, `href="$1?v=${CSS_VERSION}"`)
+    .replace(/src="(blog\.js)(?:\?[^\"]*)?"/g, `src="$1?v=${JS_VERSION}"`);
+  if (updated !== source) writeFileSync(file, updated);
+}
+
 inject(
   resolve(root, 'index.html'),
   '<!-- BLOG:LATEST:START -->',
@@ -736,10 +685,3 @@ inject(
   posts.slice(0, 3).map(latestItemHtml).join('\n'),
   '首页最新文章 → index.html'
 );
-
-// 分类清单供核对
-console.log('分类：');
-for (const c of [...CATEGORIES].sort((a, b) => a.order - b.order)) {
-  const n = posts.filter((p) => p.category.key === c.key).length;
-  console.log(`  ${c.name}（${c.en}）${n} 篇`);
-}

@@ -56,7 +56,7 @@
   line-height: 1.8;
 }
 
-/* ===== 工具栏：分类 / 搜索 / 排序 ===== */
+/* ===== 工具栏：搜索 / 排序 ===== */
 .blog-toolbar {
   display: flex;
   flex-wrap: wrap;
@@ -65,45 +65,6 @@
   justify-content: space-between;
   padding-bottom: 20px;
   border-bottom: 1px solid var(--line);
-}
-
-.blog-filters {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.blog-filter {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  min-height: 36px;
-  padding: 6px 14px;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  background: var(--surface);
-  color: var(--text);
-  font: inherit;
-  font-size: 13px;
-  cursor: pointer;
-  transition: border-color 160ms ease, background 160ms ease, color 160ms ease;
-}
-
-.blog-filter:hover {
-  border-color: var(--teal);
-  background: var(--surface-tint);
-}
-
-.blog-filter.is-active {
-  border-color: var(--teal);
-  background: var(--teal);
-  color: #fff;
-}
-
-.blog-filter__count {
-  font-size: 11px;
-  font-variant-numeric: tabular-nums;
-  opacity: 0.75;
 }
 
 .blog-tools {
@@ -234,7 +195,6 @@
   font-size: 12px;
 }
 
-.blog-filter:focus-visible,
 .blog-search input:focus-visible,
 .post-card a:focus-visible,
 .post__content a:focus-visible {
@@ -308,15 +268,6 @@
   font-size: 12px;
 }
 
-.post-card__category {
-  padding: 3px 10px;
-  border-radius: 999px;
-  background: var(--surface-tint);
-  color: var(--teal-dark);
-  font-size: 12px;
-  font-weight: 700;
-}
-
 .post-card__title {
   margin: 0;
   font-size: 19px;
@@ -336,35 +287,6 @@
   color: var(--muted);
   font-size: 14px;
   line-height: 1.75;
-}
-
-.post-card__tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: auto;
-  padding-top: 6px;
-}
-
-.post-card__tag {
-  color: var(--muted);
-  font-size: 12px;
-}
-
-.post-card__tag::before {
-  content: "#";
-  opacity: 0.6;
-}
-
-/* 奇思妙想：只做少量区分，其余样式与别的分类完全一致 */
-.post-card[data-category="ideas"] {
-  border-left: 3px dashed var(--coral);
-}
-
-.post-card[data-category="ideas"] .post-card__category {
-  border: 1px dashed rgba(216, 107, 75, 0.6);
-  background: transparent;
-  color: #b8563a;
 }
 
 /* ===== 空状态 ===== */
@@ -410,24 +332,6 @@
   border-bottom: 1px solid var(--line);
 }
 
-.post__eyebrow {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  align-items: center;
-  margin: 0 0 10px;
-  color: var(--muted);
-  font-size: 13px;
-}
-
-.post__eyebrow a {
-  padding: 3px 10px;
-  border-radius: 999px;
-  background: var(--surface-tint);
-  color: var(--teal-dark);
-  font-weight: 700;
-}
-
 .post__title {
   margin: 0 0 14px;
   font-size: clamp(28px, 4vw, 40px);
@@ -448,32 +352,6 @@
   gap: 8px;
   color: var(--muted);
   font-size: 13px;
-}
-
-.post__tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 14px;
-}
-
-.post__tag {
-  padding: 3px 10px;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  color: var(--muted);
-  font-size: 12px;
-}
-
-.post__tag:hover {
-  border-color: var(--teal);
-  color: var(--teal-dark);
-}
-
-/* 奇思妙想文章页的少量独特处理 */
-.post:has(.post__eyebrow a[href*="ideas"]) .post__title {
-  border-left: 4px dashed var(--coral);
-  padding-left: 16px;
 }
 
 .post__layout {
@@ -572,6 +450,14 @@
 
 .post__content p {
   margin: 0 0 1.1em;
+}
+
+.post__content > p {
+  text-indent: 2em;
+}
+
+.post__content > p:has(.post-figure) {
+  text-indent: 0;
 }
 
 .post__content ul,
@@ -934,11 +820,6 @@ a.post__nav-link:hover {
   gap: 10px;
   color: var(--muted);
   font-size: 12px;
-}
-
-.latest-item__category {
-  color: var(--teal-dark);
-  font-weight: 700;
 }
 
 .latest-item__excerpt {
