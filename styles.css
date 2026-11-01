@@ -728,7 +728,7 @@ a.interest-tag:focus-visible {
 
   .hero__media {
     order: -1;
-    justify-content: start;
+    justify-content: center;
   }
 
   .hero__media img {
