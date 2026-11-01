@@ -456,7 +456,7 @@ function headerHtml(prefix, active) {
     link(`${prefix}index.html#about`, '关于'),
     link(`${prefix}index.html#notes`, '动态'),
     link(`${prefix}index.html#work`, '项目'),
-    link(`${prefix}index.html`, '博客', 'blog'),
+    link('index.html', '博客', 'blog'),
     link(`${prefix}index.html#travel`, '旅行足迹'),
     link(`${prefix}index.html#contact`, '联系'),
     '</nav>',

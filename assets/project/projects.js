@@ -57,17 +57,47 @@ window.projectDetails = {
       {
         "src": "assets/project/super-resolution/workflow.jpg",
         "alt": "真实退化建模、样本生成与 GOCI-2 超分辨率应用的技术路线",
-        "caption": "真实退化建模与重建流程"
+        "caption": "真实退化建模与重建流程",
+        "preview": {
+          "src": "assets/project/optimized/super-resolution/52e49028c0751cda-preview.jpg",
+          "width": 1280,
+          "height": 684
+        },
+        "thumbnail": {
+          "src": "assets/project/optimized/super-resolution/52e49028c0751cda-thumbnail.jpg",
+          "width": 192,
+          "height": 103
+        }
       },
       {
         "src": "assets/project/super-resolution/front-reconstruction.jpg",
         "alt": "原始低分辨率、插值、EDSR、RCAN、DBPN、W-MREA 与参考影像在锋面区域的重建对比",
-        "caption": "锋面区域的细节恢复对比"
+        "caption": "锋面区域的细节恢复对比",
+        "preview": {
+          "src": "assets/project/optimized/super-resolution/0ae1705644235b90-preview.jpg",
+          "width": 1280,
+          "height": 321
+        },
+        "thumbnail": {
+          "src": "assets/project/optimized/super-resolution/0ae1705644235b90-thumbnail.jpg",
+          "width": 192,
+          "height": 48
+        }
       },
       {
         "src": "assets/project/super-resolution/psnr-comparison.jpg",
         "alt": "不同模型在训练集和独立测试集上的 PSNR 分布",
-        "caption": "训练与独立测试集的 PSNR 分布"
+        "caption": "训练与独立测试集的 PSNR 分布",
+        "preview": {
+          "src": "assets/project/optimized/super-resolution/33cbeec39658e484-preview.jpg",
+          "width": 919,
+          "height": 459
+        },
+        "thumbnail": {
+          "src": "assets/project/optimized/super-resolution/33cbeec39658e484-thumbnail.jpg",
+          "width": 192,
+          "height": 96
+        }
       },
       {
         "caption": "海表流场对比（T3—T4，间隔 1 h）",
@@ -75,12 +105,32 @@ window.projectDetails = {
           {
             "src": "assets/project/super-resolution/surface-current.jpg",
             "alt": "原始 GOCI-2 影像提取的日本海 MCC 海表流场，底图为叶绿素浓度",
-            "caption": "原始 GOCI-2"
+            "caption": "原始 GOCI-2",
+            "preview": {
+              "src": "assets/project/optimized/super-resolution/c785c4e279c33d41-preview.jpg",
+              "width": 1280,
+              "height": 917
+            },
+            "thumbnail": {
+              "src": "assets/project/optimized/super-resolution/c785c4e279c33d41-thumbnail.jpg",
+              "width": 192,
+              "height": 138
+            }
           },
           {
             "src": "assets/project/super-resolution/surface-current_sr.jpg",
             "alt": "8 倍超分辨率影像提取的同区域同时间间隔 MCC 海表流场",
-            "caption": "8× 超分辨率"
+            "caption": "8× 超分辨率",
+            "preview": {
+              "src": "assets/project/optimized/super-resolution/1682a41e56cb3a80-preview.jpg",
+              "width": 1280,
+              "height": 917
+            },
+            "thumbnail": {
+              "src": "assets/project/optimized/super-resolution/1682a41e56cb3a80-thumbnail.jpg",
+              "width": 192,
+              "height": 138
+            }
           }
         ]
       }
@@ -141,22 +191,62 @@ window.projectDetails = {
       {
         "src": "assets/project/vegetation/研究区域第二版_line300.jpg",
         "alt": "艾比湖流域研究范围、艾比湖与赛里木湖及其在新疆的位置",
-        "caption": "艾比湖流域研究区域与地理位置"
+        "caption": "艾比湖流域研究区域与地理位置",
+        "preview": {
+          "src": "assets/project/optimized/vegetation/57459631c853c152-preview.jpg",
+          "width": 1280,
+          "height": 672
+        },
+        "thumbnail": {
+          "src": "assets/project/optimized/vegetation/57459631c853c152-thumbnail.jpg",
+          "width": 192,
+          "height": 101
+        }
       },
       {
         "src": "assets/project/vegetation/空间分布scalebar_Colorbar300.jpg",
         "alt": "艾比湖流域植被覆盖度空间分布，连续色标范围为 0 到 1",
-        "caption": "植被覆盖度 FVC 的空间差异"
+        "caption": "植被覆盖度 FVC 的空间差异",
+        "preview": {
+          "src": "assets/project/optimized/vegetation/53f794901851169d-preview.jpg",
+          "width": 1280,
+          "height": 714
+        },
+        "thumbnail": {
+          "src": "assets/project/optimized/vegetation/53f794901851169d-thumbnail.jpg",
+          "width": 192,
+          "height": 107
+        }
       },
       {
         "src": "assets/project/vegetation/class500_legend.jpg",
         "alt": "水域与冰雪、自然植被、非小麦耕地、荒漠与建筑、小麦的五类分类结果",
-        "caption": "融合物候、地形与纹理的五类地物分类"
+        "caption": "融合物候、地形与纹理的五类地物分类",
+        "preview": {
+          "src": "assets/project/optimized/vegetation/4447ff93c4492804-preview.jpg",
+          "width": 1280,
+          "height": 692
+        },
+        "thumbnail": {
+          "src": "assets/project/optimized/vegetation/4447ff93c4492804-thumbnail.jpg",
+          "width": 192,
+          "height": 104
+        }
       },
       {
         "src": "assets/project/vegetation/Class对比.jpg",
         "alt": "局部原始遥感影像、WorldCereal 耕地产品与本研究分类结果对比",
-        "caption": "原始影像、WorldCereal 与本研究分类对比"
+        "caption": "原始影像、WorldCereal 与本研究分类对比",
+        "preview": {
+          "src": "assets/project/optimized/vegetation/c2e5d5759f5e89da-preview.jpg",
+          "width": 1280,
+          "height": 648
+        },
+        "thumbnail": {
+          "src": "assets/project/optimized/vegetation/c2e5d5759f5e89da-thumbnail.jpg",
+          "width": 192,
+          "height": 97
+        }
       }
     ],
     "markdown": "assets/project/vegetation.md"
@@ -215,12 +305,32 @@ window.projectDetails = {
       {
         "src": "assets/project/sea-ice/ice-distribution.jpg",
         "alt": "2022 年 1 月 MOD09GA、Sentinel-2 与 Landsat-8 提取的辽东湾海冰分布及各时相面积",
-        "caption": "2022 年 1 月多源海冰分布与面积"
+        "caption": "2022 年 1 月多源海冰分布与面积",
+        "preview": {
+          "src": "assets/project/optimized/sea-ice/1d91be47325423a5-preview.jpg",
+          "width": 1002,
+          "height": 709
+        },
+        "thumbnail": {
+          "src": "assets/project/optimized/sea-ice/1d91be47325423a5-thumbnail.jpg",
+          "width": 192,
+          "height": 136
+        }
       },
       {
         "src": "assets/project/sea-ice/study-area-clean.jpg",
         "alt": "根据原始截图整理的辽东湾研究区域及 Landsat-8、MODIS 与 Sentinel-2 影像示意",
-        "caption": "研究区域与多源遥感影像（截图整理示意）"
+        "caption": "研究区域与多源遥感影像（截图整理示意）",
+        "preview": {
+          "src": "assets/project/optimized/sea-ice/79c63ce618dd1581-preview.jpg",
+          "width": 1280,
+          "height": 720
+        },
+        "thumbnail": {
+          "src": "assets/project/optimized/sea-ice/79c63ce618dd1581-thumbnail.jpg",
+          "width": 192,
+          "height": 108
+        }
       }
     ],
     "markdown": "assets/project/sea-ice.md"
@@ -292,12 +402,32 @@ window.projectDetails = {
       {
         "src": "assets/project/internship/software-ui.jpg",
         "alt": "森林分割软件图形界面：地图叠加显示与一键批量处理",
-        "caption": "森林分割软件的图形界面与批量处理入口（部分信息已打码）"
+        "caption": "森林分割软件的图形界面与批量处理入口（部分信息已打码）",
+        "preview": {
+          "src": "assets/project/optimized/internship/b9ce8a8dcbf638e6-preview.jpg",
+          "width": 864,
+          "height": 574
+        },
+        "thumbnail": {
+          "src": "assets/project/optimized/internship/b9ce8a8dcbf638e6-thumbnail.jpg",
+          "width": 192,
+          "height": 128
+        }
       },
       {
         "src": "assets/project/internship/forest-mask.jpg",
         "alt": "森林分割掩膜与原始影像叠加，红色区域为模型预测的森林",
-        "caption": "森林分割掩膜叠加结果"
+        "caption": "森林分割掩膜叠加结果",
+        "preview": {
+          "src": "assets/project/optimized/internship/c113248f11b63e5f-preview.jpg",
+          "width": 690,
+          "height": 607
+        },
+        "thumbnail": {
+          "src": "assets/project/optimized/internship/c113248f11b63e5f-thumbnail.jpg",
+          "width": 192,
+          "height": 169
+        }
       }
     ],
     "markdown": "assets/project/internship.md"

@@ -72,7 +72,9 @@
         imageLink.href = item.src;
         imageLink.setAttribute('aria-label', `在新标签页查看原图：${item.caption}`);
         const image = node('img');
-        image.src = item.src;
+        image.src = item.preview.src;
+        image.width = item.preview.width;
+        image.height = item.preview.height;
         image.alt = item.alt;
         image.decoding = 'async';
         imageLink.append(image);
@@ -92,7 +94,9 @@
       if (entry.images) button.classList.add('project-gallery__thumbnail--comparison');
       (entry.images || [entry]).forEach(item => {
         const thumbnail = node('img');
-        thumbnail.src = item.src;
+        thumbnail.src = item.thumbnail.src;
+        thumbnail.width = item.thumbnail.width;
+        thumbnail.height = item.thumbnail.height;
         thumbnail.alt = '';
         thumbnail.decoding = 'async';
         button.append(thumbnail);

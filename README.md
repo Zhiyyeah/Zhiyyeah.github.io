@@ -44,6 +44,8 @@
     │   ├── README.md       # 资料依据、数值口径与维护说明（不随网站发布）
     │   ├── *.md            # 四个项目的展示正文
     │   ├── projects.js     # 生成的详情数据，支持直接打开本地页面
+│   ├── optimized/      # 项目封面、缩略图与弹窗预览（原尺寸 JPG 保留）
+│   ├── image-variants.json # 图片副本路径、尺寸与原图哈希
     │   └── */              # 网页使用的 JPG；原始 PNG 与旧 WebP 已删除
     ├── updates/            # 「近期动态」时间线配图
     ├── travel/
@@ -102,7 +104,7 @@
 
 ### 更新项目
 
-修改 `assets/project/` 下相应的 Markdown，运行 `node tools/build-projects.mjs`，并提交 Markdown、生成的 `projects.js` 与当前 JPG 配图。首页卡片文案及主图在 `index.html` 单独维护。图片总数包含并排对比的每张原图，每个项目不超过 5 张。资料依据与数值说明见 `assets/project/README.md`（该文件不随网站发布）。
+修改 `assets/project/` 下相应的 Markdown，运行 `node tools/build-projects.mjs`。新增或替换配图时，先运行 `python3 tools/build-project-images.py`（需要 Pillow），生成封面、缩略图与弹窗预览，再构建项目。提交 Markdown、`projects.js`、`image-variants.json`、`optimized/` 下的网页副本与原尺寸 JPG。首页卡片文案在 `index.html` 单独维护，主图的 `data-project-image` 指定原图路径，构建脚本自动更新对应封面与尺寸。图片总数包含并排对比的每张原图，每个项目不超过 5 张。资料依据与数值说明见 `assets/project/README.md`（该文件不随网站发布）。
 
 ### 新增博客文章
 
@@ -167,7 +169,7 @@ git push origin main
 
 - **响应式**：主要断点 `1080px` / `850px` / `820px` / `700px` / `560px` / `480px`；卡片网格按 4 / 2 / 1 列自适应，窄屏下项目详情和双地图改为上下排列、照片网格降为 2 列再到 1 列。全局 `img { max-width: 100%; height: auto; }` 兜底。
 - **可访问性**：导航、地图、相册容器均带 `aria-label`；筛选与标记使用 `aria-pressed` 表达选中态；预览卡通过 `aria-describedby` 关联触发元素；装饰性 SVG 与图标标 `aria-hidden`。
-- **性能**：项目卡片、时间线与相册图片使用 `loading="lazy"` + `decoding="async"`，详情图示在打开项目后加载。
+- **性能**：项目卡片、时间线与相册图片使用 `loading="lazy"` + `decoding="async"`，详情缩略图和当前预览在打开项目后加载，其他预览切换时加载，原尺寸图点击后打开。
 - **不随网站发布的文件**：由 `_config.yml` 的 `exclude` 列表决定，新增维护文档时在这里登记。Jekyll 的 `exclude` 会整体覆盖内置默认值，因此该文件里同时列出了 `Gemfile`、`node_modules` 等默认项。博客的 Markdown 源文件（`blog/posts/`）也在其中，否则 Jekyll 会把带 frontmatter 的 `.md` 再渲染成一份没有样式的副本。
 - **未被引用的素材**：`assets/videos/**` 目前未接入页面；`billiards/`、`csgo/` 下的 MP4 会随仓库提交，`pubg/` 下的视频被 `.gitignore` 排除，仅本地保留。
 - **已删除的旧版本**：项目目录下原始的 PNG、旧 WebP 展示版本，以及未被引用的 `assets/china-outline.svg`，共 17 个文件已删除（约 12.4 MB）；旧 `sea-ice/study-area.jpg` 仍留在本地并由 `.gitignore` 排除。

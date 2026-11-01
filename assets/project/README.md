@@ -2,11 +2,11 @@
 
 > 本文件是维护文档，已由根目录 `_config.yml` 排除在 GitHub Pages 之外，**不随网站发布**；在仓库内和本地仍可正常阅读。
 
-四个项目的展示正文分别保存在 `super-resolution.md`、`vegetation.md`、`sea-ice.md`、`internship.md`。每篇采用相同结构：简介、目标、个人工作、结果与进展、图示。配图分别为 5、4、2、2 张，全部使用 JPG。艾比湖直接使用用户新增的 JPG；超分辨率、海冰与实习使用用户新增 PNG 的 JPG 展示副本。转换保留原始尺寸与比例，透明区域合成白底，未通过旧 WebP 转码。
+四个项目的展示正文分别保存在 `super-resolution.md`、`vegetation.md`、`sea-ice.md`、`internship.md`。每篇采用相同结构：简介、目标、个人工作、结果与进展、图示。配图分别为 5、4、2、2 张，原尺寸图全部使用 JPG。艾比湖直接使用用户新增的 JPG；超分辨率、海冰与实习使用用户新增 PNG 的 JPG 展示副本。转换保留原始尺寸与比例，透明区域合成白底，未通过旧 WebP 转码。
 
-修改 Markdown 后，在仓库根目录执行 `node tools/build-projects.mjs`，同步生成 `projects.js`。网页直接读取生成的本地数据，无网络依赖，也支持双击 `index.html`。首页卡片文案在 `index.html`，详情样式在 `styles.css`，交互在 `project-details.js`。
+修改 Markdown 后，在仓库根目录执行 `node tools/build-projects.mjs`，同步生成 `projects.js`。新增或替换图片时，先运行 `python3 tools/build-project-images.py`（需要 Pillow），生成 `optimized/` 下的网页副本及 `image-variants.json`，再运行项目构建脚本。缩略图长边最多 192px，首页封面最多 720px，弹窗预览最多 1280px，不放大小图；原尺寸 JPG 保留，供点击预览后查看。项目构建会校验原图哈希，防止图片更新后继续使用旧副本，并同步首页封面及项目脚本的缓存版本。网页直接读取生成的本地数据，无网络依赖，也支持双击 `index.html`。首页卡片文案在 `index.html`，详情样式在 `styles.css`，交互在 `project-details.js`。
 
-`图示` 下的图片默认独立展示；用 `### 对比标题` 将随后的两张 JPG 合为并排对比。图片总数按实际文件计数，不能超过 5 张。可在元信息中设置 `featured: 对比标题`，使详情默认打开该组结果。网页只引用当前 JPG。超分辨率、植被与海冰的原始 PNG 及旧 WebP 展示版本此前仅本地保留、由 `.gitignore` 排除，现已删除；实习的原始 PNG 仍保留在 `internship/`，旧 `sea-ice/study-area.jpg` 也仍保留在本地。
+`图示` 下的图片默认独立展示；用 `### 对比标题` 将随后的两张 JPG 合为并排对比。图片总数按实际文件计数，不能超过 5 张。可在元信息中设置 `featured: 对比标题`，使详情默认打开该组结果。首页与弹窗使用优化后的 JPG；预览链接指向原尺寸 JPG。超分辨率、植被与海冰的原始 PNG 及旧 WebP 展示版本此前仅本地保留、由 `.gitignore` 排除，现已删除；实习的原始 PNG 仍保留在 `internship/`，旧 `sea-ice/study-area.jpg` 也仍保留在本地。
 
 ## 超分辨率
 

@@ -1,0 +1,236 @@
+{
+  "assets/project/super-resolution/workflow.jpg": {
+    "sourceHash": "52e49028c0751cda0cfbd5e28762e142c9c51103055992d68fc6069d3433b9e0",
+    "thumbnail": {
+      "src": "assets/project/optimized/super-resolution/52e49028c0751cda-thumbnail.jpg",
+      "width": 192,
+      "height": 103
+    },
+    "cover": {
+      "src": "assets/project/optimized/super-resolution/52e49028c0751cda-cover.jpg",
+      "width": 720,
+      "height": 385
+    },
+    "preview": {
+      "src": "assets/project/optimized/super-resolution/52e49028c0751cda-preview.jpg",
+      "width": 1280,
+      "height": 684
+    }
+  },
+  "assets/project/super-resolution/front-reconstruction.jpg": {
+    "sourceHash": "0ae1705644235b903ffcf0380797a38fc23bc30046023e6c98bdb5617f046314",
+    "thumbnail": {
+      "src": "assets/project/optimized/super-resolution/0ae1705644235b90-thumbnail.jpg",
+      "width": 192,
+      "height": 48
+    },
+    "cover": {
+      "src": "assets/project/optimized/super-resolution/0ae1705644235b90-cover.jpg",
+      "width": 720,
+      "height": 181
+    },
+    "preview": {
+      "src": "assets/project/optimized/super-resolution/0ae1705644235b90-preview.jpg",
+      "width": 1280,
+      "height": 321
+    }
+  },
+  "assets/project/super-resolution/psnr-comparison.jpg": {
+    "sourceHash": "33cbeec39658e4848c5c3f7c71be83a9b4d8da9a9ed61c426a4ad4936aaa575e",
+    "thumbnail": {
+      "src": "assets/project/optimized/super-resolution/33cbeec39658e484-thumbnail.jpg",
+      "width": 192,
+      "height": 96
+    },
+    "cover": {
+      "src": "assets/project/optimized/super-resolution/33cbeec39658e484-cover.jpg",
+      "width": 720,
+      "height": 360
+    },
+    "preview": {
+      "src": "assets/project/optimized/super-resolution/33cbeec39658e484-preview.jpg",
+      "width": 919,
+      "height": 459
+    }
+  },
+  "assets/project/super-resolution/surface-current.jpg": {
+    "sourceHash": "c785c4e279c33d41ad9e776f7c064530feaf8490ca2a819c1841333e596fe165",
+    "thumbnail": {
+      "src": "assets/project/optimized/super-resolution/c785c4e279c33d41-thumbnail.jpg",
+      "width": 192,
+      "height": 138
+    },
+    "cover": {
+      "src": "assets/project/optimized/super-resolution/c785c4e279c33d41-cover.jpg",
+      "width": 720,
+      "height": 516
+    },
+    "preview": {
+      "src": "assets/project/optimized/super-resolution/c785c4e279c33d41-preview.jpg",
+      "width": 1280,
+      "height": 917
+    }
+  },
+  "assets/project/super-resolution/surface-current_sr.jpg": {
+    "sourceHash": "1682a41e56cb3a80f820c27df2e0dc207b16f9c5d326fab0f42cb0c5fd27dd9f",
+    "thumbnail": {
+      "src": "assets/project/optimized/super-resolution/1682a41e56cb3a80-thumbnail.jpg",
+      "width": 192,
+      "height": 138
+    },
+    "cover": {
+      "src": "assets/project/optimized/super-resolution/1682a41e56cb3a80-cover.jpg",
+      "width": 720,
+      "height": 516
+    },
+    "preview": {
+      "src": "assets/project/optimized/super-resolution/1682a41e56cb3a80-preview.jpg",
+      "width": 1280,
+      "height": 917
+    }
+  },
+  "assets/project/vegetation/研究区域第二版_line300.jpg": {
+    "sourceHash": "57459631c853c152d4c3a7ae8338529b0f002ed7e87025fa6617bac79ee33169",
+    "thumbnail": {
+      "src": "assets/project/optimized/vegetation/57459631c853c152-thumbnail.jpg",
+      "width": 192,
+      "height": 101
+    },
+    "cover": {
+      "src": "assets/project/optimized/vegetation/57459631c853c152-cover.jpg",
+      "width": 720,
+      "height": 378
+    },
+    "preview": {
+      "src": "assets/project/optimized/vegetation/57459631c853c152-preview.jpg",
+      "width": 1280,
+      "height": 672
+    }
+  },
+  "assets/project/vegetation/空间分布scalebar_Colorbar300.jpg": {
+    "sourceHash": "53f794901851169d677d52c11d77aa341ce6132fe8ed8e4ecc54c7c683010f8b",
+    "thumbnail": {
+      "src": "assets/project/optimized/vegetation/53f794901851169d-thumbnail.jpg",
+      "width": 192,
+      "height": 107
+    },
+    "cover": {
+      "src": "assets/project/optimized/vegetation/53f794901851169d-cover.jpg",
+      "width": 720,
+      "height": 402
+    },
+    "preview": {
+      "src": "assets/project/optimized/vegetation/53f794901851169d-preview.jpg",
+      "width": 1280,
+      "height": 714
+    }
+  },
+  "assets/project/vegetation/class500_legend.jpg": {
+    "sourceHash": "4447ff93c4492804586708ab85d0a25ef5770be01597d1e13aadc2de191cd1d3",
+    "thumbnail": {
+      "src": "assets/project/optimized/vegetation/4447ff93c4492804-thumbnail.jpg",
+      "width": 192,
+      "height": 104
+    },
+    "cover": {
+      "src": "assets/project/optimized/vegetation/4447ff93c4492804-cover.jpg",
+      "width": 720,
+      "height": 389
+    },
+    "preview": {
+      "src": "assets/project/optimized/vegetation/4447ff93c4492804-preview.jpg",
+      "width": 1280,
+      "height": 692
+    }
+  },
+  "assets/project/vegetation/Class对比.jpg": {
+    "sourceHash": "c2e5d5759f5e89dad47794fa1b021cb38e1f0e123f0933725357c917621d5dff",
+    "thumbnail": {
+      "src": "assets/project/optimized/vegetation/c2e5d5759f5e89da-thumbnail.jpg",
+      "width": 192,
+      "height": 97
+    },
+    "cover": {
+      "src": "assets/project/optimized/vegetation/c2e5d5759f5e89da-cover.jpg",
+      "width": 720,
+      "height": 365
+    },
+    "preview": {
+      "src": "assets/project/optimized/vegetation/c2e5d5759f5e89da-preview.jpg",
+      "width": 1280,
+      "height": 648
+    }
+  },
+  "assets/project/sea-ice/ice-distribution.jpg": {
+    "sourceHash": "1d91be47325423a5374e1d3d97934e5e487401fd70e8ddb791bcf65368da5bc8",
+    "thumbnail": {
+      "src": "assets/project/optimized/sea-ice/1d91be47325423a5-thumbnail.jpg",
+      "width": 192,
+      "height": 136
+    },
+    "cover": {
+      "src": "assets/project/optimized/sea-ice/1d91be47325423a5-cover.jpg",
+      "width": 720,
+      "height": 509
+    },
+    "preview": {
+      "src": "assets/project/optimized/sea-ice/1d91be47325423a5-preview.jpg",
+      "width": 1002,
+      "height": 709
+    }
+  },
+  "assets/project/sea-ice/study-area-clean.jpg": {
+    "sourceHash": "79c63ce618dd158111af03cdda8ee3c5107e8b2406103de6347e74b86073c4d0",
+    "thumbnail": {
+      "src": "assets/project/optimized/sea-ice/79c63ce618dd1581-thumbnail.jpg",
+      "width": 192,
+      "height": 108
+    },
+    "cover": {
+      "src": "assets/project/optimized/sea-ice/79c63ce618dd1581-cover.jpg",
+      "width": 720,
+      "height": 405
+    },
+    "preview": {
+      "src": "assets/project/optimized/sea-ice/79c63ce618dd1581-preview.jpg",
+      "width": 1280,
+      "height": 720
+    }
+  },
+  "assets/project/internship/software-ui.jpg": {
+    "sourceHash": "b9ce8a8dcbf638e67cc194a8bb64bb083829fbbc1df434305d76be9bb1952836",
+    "thumbnail": {
+      "src": "assets/project/optimized/internship/b9ce8a8dcbf638e6-thumbnail.jpg",
+      "width": 192,
+      "height": 128
+    },
+    "cover": {
+      "src": "assets/project/optimized/internship/b9ce8a8dcbf638e6-cover.jpg",
+      "width": 720,
+      "height": 478
+    },
+    "preview": {
+      "src": "assets/project/optimized/internship/b9ce8a8dcbf638e6-preview.jpg",
+      "width": 864,
+      "height": 574
+    }
+  },
+  "assets/project/internship/forest-mask.jpg": {
+    "sourceHash": "c113248f11b63e5fe3447890b0fafab8316a4af445d33089050147c43d1ff37c",
+    "thumbnail": {
+      "src": "assets/project/optimized/internship/c113248f11b63e5f-thumbnail.jpg",
+      "width": 192,
+      "height": 169
+    },
+    "cover": {
+      "src": "assets/project/optimized/internship/c113248f11b63e5f-cover.jpg",
+      "width": 690,
+      "height": 607
+    },
+    "preview": {
+      "src": "assets/project/optimized/internship/c113248f11b63e5f-preview.jpg",
+      "width": 690,
+      "height": 607
+    }
+  }
+}
