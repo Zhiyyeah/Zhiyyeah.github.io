@@ -1,0 +1,54 @@
+/* 首页字号：辅助信息、正文、引导、次级标题、栏目标题 */
+body.home-page {
+  font-size: 16px;
+}
+
+body.home-page :is(
+  .eyebrow, .hero__tag-hint, .hero__tags .interest-tag,
+  .timeline-date .year, .timeline-date .month-day, .update-media figcaption,
+  .project-card__number, .project-card__meta, .project-card__footer,
+  .project-card__action, .latest-item__meta, .travel-map-hint,
+  .travel-marker, .travel-place, .travel-filter, .travel-album__status,
+  .travel-photo-card figcaption, .travel-photo-card figcaption strong,
+  .travel-preview__details strong, .travel-preview__details span,
+  .travel-preview__details time, .travel-preview__details small,
+  .contact-panel__eyebrow, .project-detail__labels .eyebrow,
+  .project-detail__status, .project-detail__meta, .project-detail__metrics dt,
+  .project-gallery__counter, .project-gallery__comparison-label,
+  .project-gallery figcaption, .project-gallery__thumbnail span,
+  .project-gallery__hint, .project-detail__tags li, .project-detail__footer
+) {
+  font-size: 13px;
+}
+
+body.home-page :is(
+  .site-nav, .hero__actions .button, .expand-btn, .project-section-lead,
+  .update-card p, .project-card__summary, .latest-item__excerpt,
+  .contact-panel__copy > p:last-child, .contact-panel__link,
+  .project-detail__subtitle, .project-detail__intro,
+  .project-detail__section p, .project-detail__section li,
+  .project-detail__section h3, .project-gallery__heading h3
+) {
+  font-size: 15px;
+}
+
+body.home-page :is(.brand, .button, .about-text p, .hero__lead, .site-footer) {
+  font-size: 16px;
+}
+
+body.home-page :is(
+  .update-card h3, .project-card h3, .latest-item__title,
+  .travel-map-panel h3, .travel-year-group h4, .travel-album__name,
+  .contact-panel h3, .project-detail__heading h2, .project-detail__metrics dd
+) {
+  font-size: 20px;
+}
+
+body.home-page .section__heading h2 {
+  font-size: 32px;
+}
+
+body.home-page .hero__tag-hint span,
+body.home-page .hero__actions .button::after {
+  font-size: 15px;
+}
