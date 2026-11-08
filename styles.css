@@ -1527,3 +1527,50 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
   .section__heading .eyebrow { margin-bottom: 8px; }
   .contact-panel { padding: 24px; }
 }
+
+/* 手机端：让导航、图片和阅读内容适应窄屏 */
+@media (max-width: 700px) {
+  section[id], .timeline-item[id] { scroll-margin-top: 112px; }
+  .site-header { gap: 4px; padding: 12px 20px 0; }
+  .site-nav { gap: 16px; font-size: 14px; }
+  .site-nav a { display: inline-flex; align-items: center; min-height: 44px; padding: 4px 0; }
+  .hero { gap: 28px; padding: 40px 20px 56px; }
+  .hero__media img { width: min(100%, 224px); }
+  .hero__lead { margin-top: 16px; font-size: 17px; line-height: 1.75; }
+  .hero__actions { gap: 8px; margin-top: 24px; }
+  .hero__tags { margin-top: 28px; }
+  .hero__tags .interest-tag { min-height: 36px; }
+  .section { padding: 64px 20px; }
+  .section__heading { display: block; margin-bottom: 28px; }
+  .section__heading .eyebrow { margin-bottom: 8px; }
+  .about-text p { font-size: 16px; line-height: 1.85; }
+  .updates-timeline { gap: 20px; padding-left: 20px; }
+  .timeline-item { gap: 8px; }
+  .update-card { gap: 12px; padding: 20px; }
+  .update-card h3 { font-size: 18px; }
+  .update-card p { font-size: 15px; line-height: 1.75; }
+  .update-media { width: 100%; max-width: none; margin-top: 4px; }
+  .update-media img { height: auto; aspect-ratio: 16 / 10; }
+  .update-media--contain { width: 100%; }
+  .update-media--contain img { width: auto; max-height: 240px; aspect-ratio: auto; object-fit: contain; }
+  .update-media--grid { gap: 8px; }
+  .update-media--grid img { height: 100%; aspect-ratio: 1 / 1; }
+  .update-media img.zoomed { aspect-ratio: auto; }
+  .update-media figcaption { line-height: 1.6; }
+  .card-grid { gap: 16px; }
+  .project-card__body { padding: 20px; }
+  .project-card__summary { font-size: 15px; }
+  .travel-map-panel { padding: 12px; }
+  .travel-place, .travel-filter { min-height: 44px; padding: 8px 12px; border-radius: 8px; }
+  .contact-panel { padding: 24px; }
+  .contact-panel__link { max-width: 100%; }
+  .project-detail__metrics dt { font-size: 12px; }
+  .project-detail__section p, .project-detail__section li { font-size: 14px; }
+  .project-gallery__hint, .project-detail__tags li, .project-detail__footer { font-size: 12px; }
+}
+@media (max-width: 480px) {
+  h1 { font-size: 44px; }
+  .hero__actions .button { flex: 1 1 auto; min-width: 88px; }
+  .hero__tags .interest-tag { font-size: 13px; }
+  .travel-photo-card { border-radius: 8px; }
+}
