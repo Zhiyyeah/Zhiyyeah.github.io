@@ -1459,8 +1459,9 @@ h3 { font-size: 20px; line-height: 1.4; }
 .hero__actions { margin-top: 32px; }
 .button { min-height: 44px; border-color: var(--line); color: var(--text); font-weight: 500; }
 .button:hover { transform: none; background: var(--surface-tint); }
-.hero__actions .button:first-child { background: var(--teal-dark); border-color: var(--teal-dark); color: #fff; }
-.hero__actions .button:first-child:hover { background: var(--text); }
+.hero__actions .button { gap: 8px; background: var(--surface); border-color: #aebdb6; }
+.hero__actions .button::after { content: "→"; color: var(--teal-dark); font-size: 16px; line-height: 1; }
+.hero__actions .button:hover { background: var(--surface-tint); border-color: var(--teal); }
 .hero__tags { margin-top: 40px; }
 .hero__tag-hint { gap: 8px; margin-bottom: 12px; }
 .hero__tag-hint span { color: var(--teal-dark); font-size: 16px; }
@@ -1573,4 +1574,22 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
   .hero__actions .button { flex: 1 1 auto; min-width: 88px; }
   .hero__tags .interest-tag { font-size: 13px; }
   .travel-photo-card { border-radius: 8px; }
+}
+
+/* 手机首页：内容共用左边界，标签保持同一行 */
+@media (max-width: 700px) {
+  .hero__media { place-items: start; }
+  .hero__content { min-width: 0; width: 100%; }
+  .hero__actions { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .hero__actions .button { width: 100%; min-width: 0; padding: 0 4px; gap: 4px; white-space: nowrap; font-size: 14px; }
+  .hero__actions .button::after { font-size: 14px; }
+  .hero__tags { max-width: 100%; }
+  .hero__tags .tag-list { flex-wrap: nowrap; justify-content: space-between; gap: 2px; overflow-x: auto; }
+  .hero__tags .interest-tag { flex: 0 0 auto; min-height: 40px; padding: 4px 2px; border: 0; border-radius: 0; color: var(--teal-dark); font-size: clamp(11px, 3.3vw, 13px); text-decoration: underline; text-decoration-color: #aebdb6; text-underline-offset: 4px; }
+  .hero__lead, .about-text p, .update-card p, .project-card__summary, .project-section-lead, .latest-item__excerpt, .contact-panel__copy > p:last-child { text-wrap: pretty; overflow-wrap: normal; }
+  .project-card h3, .update-card h3, .latest-item__title { text-wrap: balance; overflow-wrap: normal; }
+  .updates-timeline { padding-left: 0; }
+  .updates-timeline::before, .timeline-item::before { display: none; }
+  .timeline-date { padding-left: 0; }
+  .update-card { padding: 16px; }
 }
