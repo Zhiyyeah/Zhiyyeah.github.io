@@ -52,3 +52,28 @@ body.home-page .hero__tag-hint span,
 body.home-page .hero__actions .button::after {
   font-size: 15px;
 }
+
+/* 手机首屏的头像、姓名和简介共用中心线 */
+@media (max-width: 700px) {
+  body.home-page .hero .hero__media {
+    place-items: center;
+    justify-content: center;
+  }
+
+  body.home-page .hero h1,
+  body.home-page .hero .hero__lead {
+    text-align: center;
+  }
+
+  body.home-page .hero .hero__lead {
+    margin-inline: auto;
+    font-size: 13px;
+    text-wrap: normal;
+  }
+}
+
+@media (min-width: 360px) and (max-width: 700px) {
+  body.home-page .hero .hero__lead {
+    white-space: nowrap;
+  }
+}
