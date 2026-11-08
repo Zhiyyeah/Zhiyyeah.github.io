@@ -327,6 +327,11 @@
   margin: 0 auto;
 }
 
+/* 无目录的文章以正文宽度居中，标题与文章导航保持对齐。 */
+.post:not(:has(.post__layout--with-toc)) {
+  max-width: 760px;
+}
+
 .post__header {
   padding-bottom: 26px;
   border-bottom: 1px solid var(--line);
@@ -1015,4 +1020,59 @@ a.post__nav-link:hover {
 
 .lightbox ::selection {
   background: rgba(255, 255, 255, 0.28);
+}
+
+/* 主页文章列表与站点整体排版保持一致 */
+.latest-list { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.latest-item { padding: 24px; border-radius: 8px; box-shadow: none; transition: border-color 160ms ease; }
+.latest-item:hover { transform: none; border-color: var(--teal); box-shadow: none; }
+.latest-item__title { font-weight: 500; }
+.latest-more { text-align: left; }
+@media (max-width: 700px) { .latest-list { grid-template-columns: 1fr; } }
+
+/* 阅读排版：让文章、图片和辅助信息保持清晰的节奏 */
+.blog-hero { margin-bottom: 40px; }
+.blog-hero__title, .post__title { letter-spacing: 0; line-height: 1.35; }
+.blog-hero__lead, .post__description { line-height: 1.8; }
+.blog-search input, .blog-sort { min-height: 44px; border-radius: 8px; }
+.blog-sort__button { min-height: 42px; }
+.post-list { gap: 24px; }
+.post-card { border-radius: 8px; box-shadow: none; transition: border-color 160ms ease; }
+.post-card:hover { transform: none; border-color: var(--teal); box-shadow: none; }
+.post-card__body { gap: 12px; padding: 24px; }
+.post-card__title { font-size: 20px; font-weight: 500; line-height: 1.5; }
+.post-card__excerpt { font-size: 15px; line-height: 1.8; }
+.post__header { padding-bottom: 32px; }
+.post__title { margin-bottom: 16px; font-weight: 500; }
+.post__subtitle { margin: 0 0 16px; letter-spacing: 0; line-height: 1.7; }
+.post__description { margin-bottom: 20px; }
+.post__meta, .post-card__meta { font-variant-numeric: tabular-nums; }
+.post__layout { padding-top: 40px; }
+.post__content { font-size: 17px; line-height: 1.95; letter-spacing: 0.01em; }
+.post__content > p { margin-bottom: 1.5em; text-indent: 0; }
+.post__content h2, .post__content h3, .post__content h4 { margin-top: 2.4em; margin-bottom: .8em; font-weight: 500; }
+.post__content h2 { font-size: 1.5em; }
+.post__content h3 { padding-left: 12px; border-left-width: 3px; font-size: 1.25em; }
+.post__content h4 { font-size: 1.1em; }
+.post__content li { margin-bottom: .6em; }
+.post__content strong { font-weight: 600; }
+.post__content a { text-decoration: underline; text-underline-offset: .2em; text-decoration-thickness: 1px; border-bottom: 0; }
+.post-figure { margin: 2em 0; }
+.post-figure img { border-radius: 8px; box-shadow: none; }
+.post-figure__caption { margin-top: 12px; line-height: 1.6; }
+.post__content blockquote { padding: 16px 20px; line-height: 1.85; }
+.post__nav-link { border-radius: 8px; transition: border-color 160ms ease; }
+.post__nav-link strong { font-weight: 500; }
+a.post__nav-link:hover { transform: none; }
+.post__nav-link--empty { visibility: hidden; }
+@media (max-width: 820px) {
+  .post__nav-link--empty { display: none; }
+}
+@media (max-width: 560px) {
+  .blog-page { padding: 40px 20px 64px; }
+  .blog-hero__lead, .post__content { font-size: 16px; }
+  .post__layout { padding-top: 32px; }
+  .post__content { line-height: 1.9; }
+  .post__content > p { margin-bottom: 1.4em; }
+  .post-card__body { padding: 20px; }
 }
