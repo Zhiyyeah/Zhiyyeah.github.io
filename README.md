@@ -52,7 +52,7 @@
     │   ├── README.md       # 照片整理说明（时间、坐标来源、无 GPS 处理）（不随网站发布）
     │   └── web/            # 网页用 JPEG 副本，长边 ≤1200px，已剥离 EXIF
     └── videos/             # 台球 / CSGO / PUBG 视频素材
-        ├── billiards/      # 接清.MP4、炸清.MP4
+        ├── billiards/      # 接清.MP4
         ├── csgo/           # 1V5.MP4、5k.MP4
         └── pubg/           # 大文件被 .gitignore 排除，仅本地保留
 ```
